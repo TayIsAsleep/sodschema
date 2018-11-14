@@ -130,7 +130,6 @@ $(window).on("load", function(){
 	}else{
 		$('.info').show();
 	}
-		$('.info').hide();
 
 
 	$(".input-week").val((new Date()).getWeek());
