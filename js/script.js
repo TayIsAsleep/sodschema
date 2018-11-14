@@ -45,6 +45,8 @@ function updateTimetable(){
 
 $(window).on("load", function(){
 
+	$(".input-idnumber").val(readCookie("idnumber"));
+
 	//update triggers
 
 	updateTimetable();	
