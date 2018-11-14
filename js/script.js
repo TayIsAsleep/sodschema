@@ -48,7 +48,7 @@ function updateTimetable(){
 
 	dayOnly = $("#input-day").is(':checked');
 
-	if(width <= 820){
+	if((width <= 820) && (idnumber.length > 0){
 		if ($(".controls").is(':visible')){		
 		}else{
 			$(".controls").hide();	
@@ -108,7 +108,7 @@ function infoClose(){
 
 $(window).on("load", function(){
 
-	if(($( window ).width() <= 820) && (readCookie("idnumber") != null){
+	if($( window ).width() <= 820){
 		$(".fas").removeClass("fa-bars").addClass("fa-times");
 		$('#input-day').prop('checked', true);
 	}else{
