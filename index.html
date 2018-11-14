@@ -13,16 +13,19 @@
 	<meta name="apple-mobile-web-app-status-bar-style" content="#335C67">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 </head>
 <body>
 
 	<div class="wrapper">
 		<nav class="navbar">
 			<h1 class="header">SODSCHEMA</h1>
+			<h1 class="menuButton"><i class="fas fa-bars"></i></h1>
 			<div class="controls">
-				<input class="input-idnumber" type="text" name="idnumber" placeholder="PERSONNR/KLASS" autofocus="autofocus"/>
+				<input class="input-idnumber control" type="text" name="idnumber" placeholder="PERSONNR/KLASS" autofocus="autofocus"/>
+				<input class="input-week control" type="number" name="week" placeholder="XX"/>
 
-				<label class="input-label" for="input-day" id="input-day-label">Show only today</label>
+				<label class="input-label control" for="input-day" id="input-day-label">Show day</label>
 				<input type="checkbox" name="input-day" id="input-day"/>
 			</div>
 		</nav>
@@ -33,7 +36,7 @@
 
 		<div class="info">
 
-			<h1 onclick="infoClose()" class="infoClose">Click to close and accept policy [X]</h1>
+			<h1 onclick="infoClose()" class="infoClose">Click here to close and accept policy [X]</h1>
 			
 			<h1>SODSCHEMA Cookies Policy</h1>
 
@@ -102,7 +105,7 @@
 			</li>
 			</ul>
 
-			<h1 onclick="infoClose()" class="infoClose">Click to close and accept policy [X]</h1>
+			<h1 onclick="infoClose()" class="infoClose">Click here to close and accept policy [X]</h1>
 			<br>
 
 		</div>

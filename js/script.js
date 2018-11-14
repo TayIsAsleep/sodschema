@@ -26,6 +26,14 @@ function eraseCookie(name){
 };
 
 
+//get week number function
+
+Date.prototype.getWeek = function(){
+	        var onejan = new Date(this.getFullYear(), 0, 1);
+	        return Math.ceil((((this - onejan) / 86400000) + onejan.getDay() + 1) / 7);
+	    }
+
+
 //update timetable image
 
 function updateTimetable(){
@@ -33,11 +41,21 @@ function updateTimetable(){
 	idnumber = $(".input-idnumber").val();
 	width = $( window ).width();
 	height = ($( window ).height() - 50);
+	week = $(".input-week").val();
 
     date = new Date();
     dateDay = date.getDay();
 
 	dayOnly = $("#input-day").is(':checked');
+
+	if(width <= 820){
+		if ($(".controls").is(':visible')){		
+		}else{
+			$(".controls").hide();	
+		}
+	}else{
+		$(".controls").show();
+	}
 
     if(dayOnly) {
 
@@ -73,7 +91,7 @@ function updateTimetable(){
 	createCookie("idnumber", idnumber, 360);
 
 	if (idnumber.length > 0){
-		$(".timetable").attr("src", ("http://www.novasoftware.se/ImgGen/schedulegenerator.aspx?format=png&schoolid=80080/sv-se&id=" + idnumber + "&period=&week=46&mode=0&day=" + day + "&width=" + width + "&height=" + height ));
+		$(".timetable").attr("src", ("http://www.novasoftware.se/ImgGen/schedulegenerator.aspx?format=png&schoolid=80080/sv-se&id=" + idnumber + "&period=&week=" + week + "&mode=0&day=" + day + "&width=" + width + "&height=" + height ));
 	}
 
 };
@@ -84,17 +102,26 @@ function infoClose(){
 
 	createCookie("infoClosed", "closed", 360);
 	$('.info').hide();
-
+	$( ".input-idnumber" ).focus();
 }
 
 
 $(window).on("load", function(){
+
+	if($( window ).width() <= 820){
+		$(".fas").removeClass("fa-bars").addClass("fa-times");
+		$('#input-day').prop('checked', true);
+	}else{
+		$(".controls").show();
+	}
 
 	if(readCookie("infoClosed") == "closed"){
 		$('.info').hide();
 	}
 
 	$(".input-idnumber").val(readCookie("idnumber"));
+
+	$(".input-week").val((new Date()).getWeek());
 
 	//update triggers
 
@@ -108,8 +135,24 @@ $(window).on("load", function(){
 		updateTimetable();
 	});
 
+	$('.input-week').on('input', function() {
+		updateTimetable();
+	});
+
 	$('#input-day').on('click', function() {
 		updateTimetable();
+	});
+
+	$('.menuButton').on('click', function(){
+		$('.controls').slideToggle('fast', function() {
+		    if ($(this).is(':visible')){
+		        $(this).css('display','flex');
+		        $(".fas").removeClass("fa-bars").addClass("fa-times");
+		    }else{
+		        $(".fas").removeClass("fa-times").addClass("fa-bars");
+		    }
+
+		});
 	});
 
 });
