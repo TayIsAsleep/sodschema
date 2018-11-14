@@ -48,7 +48,7 @@ function updateTimetable(){
 
 	dayOnly = $("#input-day").is(':checked');
 
-	if((width <= 820) && (idnumber.length > 0){
+	if((width <= 820) && (idnumber.length > 0)){
 		if ($(".controls").is(':visible')){		
 		}else{
 			$(".controls").hide();	
