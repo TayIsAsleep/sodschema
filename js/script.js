@@ -108,7 +108,7 @@ function infoClose(){
 
 $(window).on("load", function(){
 
-	if($( window ).width() <= 820){
+	if(($( window ).width() <= 820) && (readCookie("idnumber") != null){
 		$(".fas").removeClass("fa-bars").addClass("fa-times");
 		$('#input-day').prop('checked', true);
 	}else{
