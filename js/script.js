@@ -107,13 +107,12 @@ function infoClose(){
 
 
 $(window).on("load", function(){
-
 	$(".input-idnumber").val(readCookie("idnumber"));
 
 	if($( window ).width() <= 820){
 
 
-		if(readCookie("idnumber") == ""){
+		if(readCookie("idnumber") != null){
 			$(".controls").hide();			
 		}else{
 			$(".fas").removeClass("fa-bars").addClass("fa-times");
