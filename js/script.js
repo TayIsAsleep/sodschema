@@ -42,8 +42,21 @@ function updateTimetable(){
 
 };
 
+//accept cookie policy
+
+function infoClose(){
+
+	createCookie("infoClosed", "closed", 360);
+	$('.info').hide();
+
+}
+
 
 $(window).on("load", function(){
+
+	if(readCookie("idnumber") == "closed"){
+		$('.info').hide();
+	}
 
 	$(".input-idnumber").val(readCookie("idnumber"));
 
