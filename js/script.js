@@ -34,10 +34,46 @@ function updateTimetable(){
 	width = $( window ).width();
 	height = ($( window ).height() - 50);
 
+    date = new Date();
+    dateDay = date.getDay();
+
+	dayOnly = $("#input-day").is(':checked');
+
+    if(dayOnly) {
+
+    	$("#input-day-label").text("Show week");
+
+	    switch(dateDay){
+	    	case 1:
+	    		day = 1;
+	    		break;
+	    	case 2:
+	    		day = 2;
+	    		break;
+	    	case 3:
+	    		day = 4;
+	    		break;
+	    	case 4:
+	    		day = 8;
+	    		break;
+	    	case 5:
+	    		day = 16;
+	    		break;
+	    	default:
+	    		day = 0;
+	    }
+
+	} else {
+
+    	$("#input-day-label").text("Show day");
+	    day = 0;
+	
+	}
+
 	createCookie("idnumber", idnumber, 360);
 
 	if (idnumber.length > 0){
-		$(".timetable").attr("src", ("http://www.novasoftware.se/ImgGen/schedulegenerator.aspx?format=png&schoolid=80080/sv-se&id=" + idnumber + "&period=&week=46&mode=0&day=0&width=" + width + "&height=" + height ));
+		$(".timetable").attr("src", ("http://www.novasoftware.se/ImgGen/schedulegenerator.aspx?format=png&schoolid=80080/sv-se&id=" + idnumber + "&period=&week=46&mode=0&day=" + day + "&width=" + width + "&height=" + height ));
 	}
 
 };
@@ -54,7 +90,7 @@ function infoClose(){
 
 $(window).on("load", function(){
 
-	if(readCookie("idnumber") == "closed"){
+	if(readCookie("infoClosed") == "closed"){
 		$('.info').hide();
 	}
 
@@ -69,6 +105,10 @@ $(window).on("load", function(){
 	});
 
 	$('.input-idnumber').on('input', function() {
+		updateTimetable();
+	});
+
+	$('#input-day').on('click', function() {
 		updateTimetable();
 	});
 

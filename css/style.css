@@ -43,6 +43,23 @@ body{
 	outline: 0;
 }
 
+.input-label{
+	color: white;
+	font-family: 'Raleway', sans-serif;
+	user-select: none;
+	cursor: pointer;
+	font-size: 2rem;
+	margin-left: 1rem;
+}
+
+#input-day{
+	display: none;
+}
+
+#input-day-label{
+	padding: 0.5rem 1.5rem;
+}
+
 .timetable{
 	position: fixed;
 	bottom: 0;
