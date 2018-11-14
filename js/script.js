@@ -40,7 +40,7 @@ function updateTimetable(){
 
 	idnumber = $(".input-idnumber").val();
 	width = $( window ).width();
-	height = ($( window ).height() - 50);
+	height = ($( window ).height() - $(".navbar").height());
 	week = $(".input-week").val();
 
     date = new Date();
@@ -151,7 +151,9 @@ $(window).on("load", function(){
 
 	$('#input-day').on('click', function() {
 		updateTimetable();
-		$('.menuButton').trigger("click");
+		if($(window).width() <= 820){
+			$('.menuButton').trigger("click");
+		}
 	});
 
 	$('.menuButton').on('click', function(){
