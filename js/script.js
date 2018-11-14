@@ -110,7 +110,7 @@ $(window).on("load", function(){
 	$(".input-idnumber").val(readCookie("idnumber"));
 
 	if($( window ).width() <= 820){
-		
+
 		if(readCookie("idnumber") != null){
 			$(".controls").hide();
 			$('#input-day').prop('checked', true);			
@@ -151,6 +151,7 @@ $(window).on("load", function(){
 
 	$('#input-day').on('click', function() {
 		updateTimetable();
+		$('.menuButton').trigger("click");
 	});
 
 	$('.menuButton').on('click', function(){
