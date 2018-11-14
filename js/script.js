@@ -110,10 +110,10 @@ $(window).on("load", function(){
 	$(".input-idnumber").val(readCookie("idnumber"));
 
 	if($( window ).width() <= 820){
-
-
+		
 		if(readCookie("idnumber") != null){
-			$(".controls").hide();			
+			$(".controls").hide();
+			$('#input-day').prop('checked', true);			
 		}else{
 			$(".fas").removeClass("fa-bars").addClass("fa-times");
 			$('#input-day').prop('checked', true);
