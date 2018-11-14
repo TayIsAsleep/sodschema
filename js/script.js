@@ -117,6 +117,8 @@ $(window).on("load", function(){
 
 	if(readCookie("infoClosed") == "closed"){
 		$('.info').hide();
+	}else{
+		$('.info').show();
 	}
 
 	$(".input-idnumber").val(readCookie("idnumber"));

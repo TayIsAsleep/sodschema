@@ -139,6 +139,7 @@ body{
 	background: white;
 	color: black;
     word-wrap: break-word;
+    display: none;
 }
 
 .infoClose{
