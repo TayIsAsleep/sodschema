@@ -60,6 +60,7 @@ body{
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	z-index: 3000;
 }
 
 .input-idnumber{
@@ -123,6 +124,7 @@ body{
 	position: fixed;
 	bottom: 0;
 	left: 0;
+	z-index: -1;
 }
 
 .info{

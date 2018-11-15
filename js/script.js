@@ -168,5 +168,27 @@ $(window).on("load", function(){
 		});
 	});
 
+	$('.input-idnumber').keypress(function(event){
+		var keycode = (event.keyCode ? event.keyCode : event.which);
+		if(keycode == '13'){
+			if($(window).width() <= 820){
+				if ($(this).is(':visible')){
+					$('.menuButton').trigger("click");
+				} 
+			}
+		}
+	});
+
+	$('.input-week').keypress(function(event){
+		var keycode = (event.keyCode ? event.keyCode : event.which);
+		if(keycode == '13'){
+			if($(window).width() <= 820){
+				if ($(this).is(':visible')){
+					$('.menuButton').trigger("click");
+				} 
+			}
+		}
+	});
+
 });
 
