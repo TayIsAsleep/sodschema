@@ -177,10 +177,15 @@ body{
 		width: 100vw;
 		flex-direction: column;
 		background: #335C67;
+		-webkit-transform: translate3d(0,0,1px);
+		transform: translate3d(0,0,1px);
 	}
 
 	.control{
 		margin-top: 1vh;
+		-webkit-transform: translate3d(0,0,2px);
+		transform: translate3d(0,0,2px);
+
 	}
 
 	.menuButton{
