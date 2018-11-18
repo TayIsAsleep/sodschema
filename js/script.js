@@ -78,13 +78,17 @@ function updateTimetable(){
 	    		break;
 	    	default:
 	    		day = 0;
-	    }
+    	}
 
 	} else {
 
     	$("#input-day-label").text("Show day");
 	    day = 0;
 	
+	}
+
+	if (day == 0){
+    	$("#input-day-label").hide();
 	}
 
 	createCookie("idnumber", idnumber, 360);
