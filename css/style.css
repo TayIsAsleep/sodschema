@@ -81,6 +81,8 @@ body{
 .input-idnumber, .input-week{
 	-webkit-transition: all 0.2s ease-in-out;
 	transition: all 0.2s ease-in-out;
+	-webkit-appearance: none;
+	border-radius: 0;
 }
 
 .input-idnumber:focus, .input-week:focus, .input-idnumber:hover, .input-week:hover{
@@ -191,7 +193,6 @@ body{
 
 	.control{
 		margin-top: 1vh;
-
 	}
 
 	.menuButton{
