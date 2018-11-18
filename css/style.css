@@ -79,6 +79,7 @@ body{
 }
 
 .input-idnumber, .input-week{
+	-webkit-transition: all 0.2s ease-in-out;
 	transition: all 0.2s ease-in-out;
 }
 
@@ -172,7 +173,7 @@ body{
 	.wrapper{
 		position: fixed;
 	}
-	
+
 	.navbar{
 		white-space: nowrap;
 		z-index: 2500;
@@ -186,6 +187,7 @@ body{
 		width: 100vw;
 		flex-direction: column;
 		background: #335C67;
+		background-image: url(http://www.isopan.com/files/leaf_bkg.jpg);
 	}
 
 	.control{
