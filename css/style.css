@@ -201,6 +201,10 @@ body{
 	.menuButton{
 		display: inline-block;
 	}
+
+	.header{
+		display: none;
+	}
 }
 
 @media only screen and (max-width: 620px) {
