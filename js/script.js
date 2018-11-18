@@ -159,7 +159,7 @@ $(window).on("load", function(){
 	$('.menuButton').on('click', function(){
 		$('.controls').slideToggle('fast', function() {
 		    if ($(this).is(':visible')){
-		        $(this).css('display','flex');
+		        $(this).css('display','block');
 		        $(".fas").removeClass("fa-bars").addClass("fa-times");
 		    }else{
 		        $(".fas").removeClass("fa-times").addClass("fa-bars");
