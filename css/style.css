@@ -165,6 +165,14 @@ body{
 }
 
 @media only screen and (max-width: 820px) {
+	body{
+		position: fixed;
+	}
+
+	.wrapper{
+		position: fixed;
+	}
+	
 	.navbar{
 		white-space: nowrap;
 		z-index: 2500;
@@ -178,16 +186,10 @@ body{
 		width: 100vw;
 		flex-direction: column;
 		background: #335C67;
-		-webkit-transform: translate3d(0,0,1px);
-		transform: translate3d(0,0,1px);
-		z-index: 3000;
 	}
 
 	.control{
 		margin-top: 1vh;
-		-webkit-transform: translate3d(0,0,2px);
-		transform: translate3d(0,0,2px);
-		z-index: 3500;
 
 	}
 
