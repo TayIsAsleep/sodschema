@@ -42,13 +42,6 @@ body{
 	z-index: 2000;
 }
 
-.header{
-	font-family: 'Raleway', sans-serif;
-	color: white;
-	font-size: 2rem;
-	user-select: none;
-}
-
 .menuButton{
 	color: white;
 	display: none;
@@ -200,10 +193,6 @@ body{
 
 	.menuButton{
 		display: inline-block;
-	}
-
-	.header{
-		display: none;
 	}
 }
 
