@@ -84,11 +84,6 @@ function updateTimetable(){
 
     	$("#input-day-label").text("Show day");
 	    day = 0;
-	
-	}
-
-	if (day == 0){
-    	$("#input-day-label").hide();
 	}
 
 	createCookie("idnumber", idnumber, 360);
