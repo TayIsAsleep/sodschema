@@ -50,7 +50,7 @@ function updateTimetable(){
 
 	if(width <= 820){
 		if ($(".controls").is(':visible') != true){		
-			//$(".controls").hide();	
+			$(".controls").hide();	
 		}
 	}else{
 		$(".controls").show();
@@ -110,14 +110,14 @@ $(window).on("load", function(){
 
 	if($( window ).width() <= 820){
 
-		/*if(readCookie("idnumber") != null){
+		if(readCookie("idnumber") != null){
 			$(".controls").hide();
 			$('#input-day').prop('checked', true);			
 		}else{
 			$(".fas").removeClass("fa-bars").addClass("fa-times");
 			$('#input-day').prop('checked', true);
 			$(".controls").show();		
-		};*/
+		};
 
 	}else{
 		$(".controls").show();
@@ -156,20 +156,11 @@ $(window).on("load", function(){
 	});
 
 	$('.menuButton').on('click', function(){
-		/*$('.controls').slideToggle('fast', function() {
+		$('.controls').slideToggle('fast', function() {
 		    if ($(this).is(':visible')){
 		        $(this).css('display','flex');
 		        $(".fas").removeClass("fa-bars").addClass("fa-times");
 		    }else{
-		        $(".fas").removeClass("fa-times").addClass("fa-bars");
-		    }
-
-		});*/
-		$('.controls').addClass('menuOpen', function() {
-		    if ($(this).is(':visible')){
-		        $(".fas").removeClass("fa-bars").addClass("fa-times");
-		    }else{
-		    	$('.controls').removeClass("menuOpen");
 		        $(".fas").removeClass("fa-times").addClass("fa-bars");
 		    }
 
