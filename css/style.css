@@ -169,7 +169,7 @@ body{
 	}
 
 	.wrapper{
-		position: fixed;
+		position: relative;
 	}
 
 	.navbar{
