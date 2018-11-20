@@ -185,6 +185,11 @@ body{
 		width: 100vw;
 		flex-direction: column;
 		background: #335C67;
+		display: none;
+	}
+
+	.menuOpen{
+		display: flex;
 	}
 
 	.control{
