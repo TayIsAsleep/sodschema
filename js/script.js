@@ -156,7 +156,7 @@ $(window).on("load", function(){
 	});
 
 	$('.menuButton').on('click', function(){
-		$('.controls').slideToggle('fast', function() {
+		$('.controls').toggle(0, function() {
 		    if ($(this).is(':visible')){
 		        $(this).css('display','flex');
 		        $(".fas").removeClass("fa-bars").addClass("fa-times");
