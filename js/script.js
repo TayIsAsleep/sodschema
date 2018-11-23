@@ -1,4 +1,6 @@
 var dateModifier = 0;
+var date = new Date();
+var dateDay = date.getDay();
 
 //cookie handling functions
 
@@ -45,9 +47,6 @@ function updateTimetable(){
 	height = ($( window ).height() - $(".navbar").height());
 	week = $(".input-week").val();
 
-    date = new Date();
-    dateDay = date.getDay();
-
 	dayOnly = $("#input-day").is(':checked');
 
 	if(width <= 820){
@@ -58,13 +57,13 @@ function updateTimetable(){
 		$(".controls").show();
 	}
 
-	dateDay += dateModifier;
+	currentDay = dateDay + dateModifier;
 
     if(dayOnly) {
 
     	$("#input-day-label").text("Show week");
 
-	    switch(dateDay){
+	    switch(currentDay){
 	    	case 1:
 	    		day = 1;
 	    		break;
@@ -214,7 +213,15 @@ $(window).on("load", function(){
         swipeLeft:function(event, direction, distance, duration, fingerCount) {
 
         	if($(window).width() <= 820){
-	        	dateModifier -= 1;
+
+        		if (dateDay + dateModifier == 0){
+        			dateModifier = 0;
+        		} else if (dateDay + dateModifier == 7){
+        			dateModifier = 0;
+        		} else {
+        			dateModifier += 1;
+        		};
+
 	        	updateTimetable();
 			}
 
@@ -222,7 +229,15 @@ $(window).on("load", function(){
         swipeRight:function(event, direction, distance, duration, fingerCount) {
 
         	if($(window).width() <= 820){
-	        	dateModifier += 1;
+
+        		if (dateDay + dateModifier == 0){
+        			dateModifier = 0;
+        		} else if (dateDay + dateModifier == 7){
+        			dateModifier = 0;
+        		} else {
+        			dateModifier -= 1;
+        		};
+
 	        	updateTimetable();
 			}
 
