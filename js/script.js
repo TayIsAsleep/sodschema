@@ -216,6 +216,14 @@ $(window).on("load", function(){
 			}
 
         },
+        swipeUp:function(event, direction, distance, duration, fingerCount) {
+
+        	if($(window).width() <= 820){
+	        	dateModifier = 0;
+	        	updateTimetable();
+			}
+
+        },
         threshold:30
       });
     });
