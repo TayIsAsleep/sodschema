@@ -1,3 +1,5 @@
+var dateModifier = 0;
+
 //cookie handling functions
 
 function createCookie(name,value,days){
@@ -55,6 +57,8 @@ function updateTimetable(){
 	}else{
 		$(".controls").show();
 	}
+
+	dateDay += dateModifier;
 
     if(dayOnly) {
 
@@ -188,6 +192,33 @@ $(window).on("load", function(){
 			}
 		}
 	});
+
+//	$("body").on( "swiperight", function() {
+//	});
+
+	$(function() {
+      //Enable swiping...
+      $(".timetable").swipe( {
+        //Single swipe handler for left swipes
+        swipeLeft:function(event, direction, distance, duration, fingerCount) {
+
+        	if($(window).width() <= 820){
+	        	dateModifier -= 1;
+	        	updateTimetable();
+			}
+
+        },
+        swipeRight:function(event, direction, distance, duration, fingerCount) {
+
+        	if($(window).width() <= 820){
+	        	dateModifier += 1;
+	        	updateTimetable();
+			}
+
+        },
+        threshold:30
+      });
+    });
 
 });
 
