@@ -102,10 +102,15 @@ function updateTimetable(){
 //accept cookie policy
 
 function infoClose(){
-
 	createCookie("infoClosed", "closed", 360);
 	$('.info').hide();
 	$( ".input-idnumber" ).focus();
+}
+
+function newsClose(){
+	createCookie("newsClosed", "closed", 360);
+	$('.news').hide();
+	$( ".input-idnumber" ).focus();	
 }
 
 
@@ -131,6 +136,12 @@ $(window).on("load", function(){
 		$('.info').hide();
 	}else{
 		$('.info').show();
+	}
+
+	if(readCookie("newsClosed") == "closed"){
+		$('.news').hide();
+	}else{
+		$('.news').show();
 	}
 
 
