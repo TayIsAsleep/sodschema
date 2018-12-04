@@ -44,7 +44,7 @@ function updateTimetable(){
 
 	idnumber = $(".input-idnumber").val();
 	width = $( window ).width();
-	height = ($( window ).height() - $(".navbar").height());
+	height = (window.innerHeight - $(".navbar").height());
 	week = $(".input-week").val();
 
 	dayOnly = $("#input-day").is(':checked');
