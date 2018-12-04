@@ -31,7 +31,7 @@ body{
 .navbar{
 	height: 50px;
 	width: 100%;
-	position: absolute;
+	position: fixed;
 	left: 0;
 	top: 0;
 	background: #335C67;
@@ -179,7 +179,7 @@ body{
 
 	.controls{
 		padding-top: 1vh;
-		position: absolute;
+		position: fixed;
 		top: 50px;
 		left: 0;
 		width: 100vw;
