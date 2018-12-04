@@ -121,7 +121,7 @@ body{
 
 .timetable{
 	position: absolute;
-	bottom: 0;
+	top: 50px;
 	left: 0;
 	z-index: 1;
 }
