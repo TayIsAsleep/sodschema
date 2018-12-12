@@ -41,23 +41,16 @@ Date.prototype.getWeek = function(){
 
 function showSaved(){
 
-	savedIDs = JSON.parse(readCookie("savedIDs"));
+	savedIDs = readCookie("savedIDs");
 
 	$(".savedList").empty();
 
-	if (savedIDs.length > 1){
+	savedItems = savedIDs.split(";");
 
-/*
-		for (var i = 0; i < savedIDs.length; i++) {
-			$(".savedList").append("<li class='savedItems' onclick='savedItemClicked($(this))'>" + savedIDs[i] + "</li>");			
-		};
-*/
-
-		savedIDs.forEach(function(item, index, array) {
-			console.log(item, index);
-			$(".savedList").append("<li class='savedItems' onclick='savedItemClicked($(this))'>" + savedIDs[i] + "</li>");		
-		});
-	};
+	savedItems.forEach(function(item, index, array) {
+		console.log(item, index);
+		$(".savedList").append("<li class='savedItems' onclick='savedItemClicked($(this))'>" + index + item + "</li>");		
+	});
 
 	$(".savedIDs").fadeIn("fast");
 
@@ -238,26 +231,16 @@ $(window).on("load", function(){
 	$('#saveItem').keypress(function(event){
 		var keycode = (event.keyCode ? event.keyCode : event.which);
 		if(keycode == '13'){
-			savedIDs = JSON.parse(readCookie("savedIDs"));
+			savedIDs = readCookie("savedIDs");
 
-			console.log(savedIDs);
+			savedIDs +=	($("#saveItem").val() + ";");
 
-			if (savedIDs){
-				savedIDs.push($("#saveItem").val());
-			} else {
-				savedIDs = [
-					$("#saveItem").val()
-				];
-			};
+			$("#saveItem").val("");
 
-			console.log(savedIDs);
-
-			$("#saveItem").val();
-
-			createCookie("savedIDs", JSON.stringify(savedIDs), 360);
+			createCookie("savedIDs", savedIDs, 360);
 
 			showSaved();
-		}
+		};
 	});
 
 	$(function() {
