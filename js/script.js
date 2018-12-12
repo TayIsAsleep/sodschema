@@ -45,16 +45,20 @@ function showSaved(){
 
 	$(".savedList").empty();
 
-	savedItems = savedIDs.split("|");
-
 	if (savedIDs){
+
+		savedItems = savedIDs.split("|");
+
 		for (var i = savedItems.length - 1; i >= 0; i--) {
 			if (savedItems[i].length > 0){
 				$(".savedList").append("<li class='savedItems' onclick='savedItemClicked($(this))'>" + savedItems[i] + "</li>");				
 			};	
 		};
+
 	} else {
+
 		createCookie("savedIDs", "", 360);
+
 	};
 
 	$(".savedIDs").fadeIn("fast");
