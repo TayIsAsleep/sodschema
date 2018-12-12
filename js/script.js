@@ -47,11 +47,14 @@ function showSaved(){
 
 	savedItems = savedIDs.split("|");
 
-	if (savedIDs.length >= 1){
+	if (savedIDs){
 		for (var i = savedItems.length - 1; i >= 0; i--) {
-			console.log(savedItems[i]);
-			$(".savedList").append("<li class='savedItems' onclick='savedItemClicked($(this))'>" + savedItems[i] + "</li>");	
+			if (savedItems[i].length > 0){
+				$(".savedList").append("<li class='savedItems' onclick='savedItemClicked($(this))'>" + savedItems[i] + "</li>");				
+			};	
 		};
+	} else {
+		createCookie("savedIDs", "", 360);
 	};
 
 	$(".savedIDs").fadeIn("fast");
@@ -231,13 +234,10 @@ $(window).on("load", function(){
 		};
 	});
 
-	$('.savebutton').keypress(function(event){
-		var keycode = (event.keyCode ? event.keyCode : event.which);
-		if(keycode == '13'){
-			if($(window).width() <= 820){
-				if ($(this).is(':visible')){
-					$('.menuButton').trigger("click");
-				};
+	$('.savebutton').on("click", function(){
+		if($(window).width() <= 820){
+			if ($(this).is(':visible')){
+				$('.menuButton').trigger("click");
 			};
 		};
 	});
