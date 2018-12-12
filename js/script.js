@@ -235,6 +235,8 @@ $(window).on("load", function(){
 
 			savedIDs +=	($("#saveItem").val() + ";");
 
+			alert(savedIDs);
+
 			$("#saveItem").val("");
 
 			createCookie("savedIDs", savedIDs, 360);
