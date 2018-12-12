@@ -45,7 +45,7 @@ function showSaved(){
 
 	$(".savedList").empty();
 
-	savedItems = savedIDs.split(";");
+	savedItems = savedIDs.split("|");
 
 	for (var i = savedItems.length - 1; i >= 0; i--) {
 		console.log(savedItems[i]);
@@ -233,7 +233,7 @@ $(window).on("load", function(){
 		if(keycode == '13'){
 			savedIDs = readCookie("savedIDs");
 
-			savedIDs +=	($("#saveItem").val() + ":");
+			savedIDs +=	($("#saveItem").val() + "|");
 
 			alert(savedIDs);
 
