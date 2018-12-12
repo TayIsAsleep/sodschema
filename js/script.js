@@ -47,11 +47,9 @@ function showSaved(){
 
 	if (savedIDs){
 
-		$.each(savedIDs, function(key, value){
-
-			$(".savedList").append("<li class='savedItems' onclick='savedItemClicked($(this))'>" + value + "</li>");
-
-		});
+		for (var i = 0; i < savedIDs.length; i++) {
+			$(".savedList").append("<li class='savedItems' onclick='savedItemClicked($(this))'>" + savedIDs.length[i] + "</li>");			
+		};
 		
 	};
 
@@ -241,9 +239,9 @@ $(window).on("load", function(){
 			if (savedIDs){
 				savedIDs[(savedIDs.length + 1)] = $("#saveItem").val();
 			} else {
-				savedIDs = {
-					1: $("#saveItem").val()
-				};
+				savedIDs = [
+					$("#saveItem").val()
+				];
 			};
 
 			console.log(savedIDs);
