@@ -132,7 +132,7 @@ function infoClose(){
 	createCookie("infoClosed", "closed", 360);
 	$('.info').hide();
 	$( ".input-idnumber" ).focus();
-}
+};
 
 function newsClose(){
 	createCookie("newsClosed", "closed", 360);
@@ -259,6 +259,16 @@ $(window).on("load", function(){
 
 			showSaved();
 		};
+	});
+
+	$(document).mouseup(function(e){
+	var container = $(".savedIDs");
+
+		// if the target of the click isn't the container nor a descendant of the container
+		if (!container.is(e.target) && container.has(e.target).length === 0) 
+		{
+		    container.fadeOut("fast");
+		}
 	});
 
 	$(function() {
