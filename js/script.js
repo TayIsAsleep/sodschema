@@ -229,6 +229,17 @@ $(window).on("load", function(){
 		};
 	});
 
+	$('.savebutton').keypress(function(event){
+		var keycode = (event.keyCode ? event.keyCode : event.which);
+		if(keycode == '13'){
+			if($(window).width() <= 820){
+				if ($(this).is(':visible')){
+					$('.menuButton').trigger("click");
+				};
+			};
+		};
+	});
+
 	$('#saveItem').keypress(function(event){
 		var keycode = (event.keyCode ? event.keyCode : event.which);
 		if(keycode == '13'){
