@@ -133,7 +133,8 @@ function newsClose(){
 
 function savedItemClicked(item){
 	$(".input-idnumber").val(item.text());
-	$(".savedIDs").fadeOut();
+	$(".savedIDs").fadeOut("fast");
+	updateTimetable();
 };
 
 $(window).on("load", function(){
