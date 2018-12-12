@@ -216,7 +216,6 @@ body{
 	border-radius: 1rem;
 	transition: all .2s ease-in-out;
 	text-align: center;
-	text-transform: uppercase;
 }
 
 #saveItem:hover, #saveItem:focus{
