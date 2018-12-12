@@ -197,6 +197,7 @@ body{
 	margin-top: 1rem;
 	cursor: pointer;
 	user-select: none;
+	box-sizing: border-box;
 }
 
 .savedItems:hover, .savedItems:focus{
