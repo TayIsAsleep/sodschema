@@ -47,10 +47,10 @@ function showSaved(){
 
 	savedItems = savedIDs.split(";");
 
-	savedItems.forEach(function(item, index, array) {
-		console.log(item, index);
-		$(".savedList").append("<li class='savedItems' onclick='savedItemClicked($(this))'>" + index + item + "</li>");		
-	});
+	for (var i = savedItems.length - 1; i >= 0; i--) {
+		console.log(savedItems[i]);
+		$(".savedList").append("<li class='savedItems' onclick='savedItemClicked($(this))'>" + savedItems[i] + "</li>");	
+	};
 
 	$(".savedIDs").fadeIn("fast");
 
