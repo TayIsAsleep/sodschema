@@ -47,9 +47,11 @@ function showSaved(){
 
 	savedItems = savedIDs.split("|");
 
-	for (var i = savedItems.length - 1; i >= 0; i--) {
-		console.log(savedItems[i]);
-		$(".savedList").append("<li class='savedItems' onclick='savedItemClicked($(this))'>" + savedItems[i] + "</li>");	
+	if (savedIDs.length >= 1){
+		for (var i = savedItems.length - 1; i >= 0; i--) {
+			console.log(savedItems[i]);
+			$(".savedList").append("<li class='savedItems' onclick='savedItemClicked($(this))'>" + savedItems[i] + "</li>");	
+		};
 	};
 
 	$(".savedIDs").fadeIn("fast");
