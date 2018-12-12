@@ -185,8 +185,24 @@ body{
 }
 
 .savedItems{
-	cursor: pointer;	
-	z-index: 302;
+	padding: .5rem 1rem;
+	background-color: rgba(56,56,56, 0.75);
+	border: 0;
+	margin: 0;
+	border-radius: 1rem;
+	transition: all .2s ease-in-out;
+	text-align: center;
+	color: white;
+	width: 100%;
+	margin-top: 1rem;
+	cursor: pointer;
+	user-select: none;
+}
+
+.savedItems:hover, .savedItems:focus{
+	outline: none;
+	background-color: white;
+	color: black;
 }
 
 #saveItem{
@@ -199,10 +215,30 @@ body{
 	text-align: center;
 }
 
-#saveItem:focus{
+#saveItem:hover, #saveItem:focus{
 	outline: none;
 	background-color: white;
-	text-align: left;
+}
+
+.clearSavedItems{
+	padding: .5rem 1rem;
+	background-color: rgba(56,56,56, 0.75);
+	border: 0;
+	margin: 0;
+	border-radius: 1rem;
+	transition: all .2s ease-in-out;
+	text-align: center;
+	color: white;
+	width: 100%;
+	margin-top: 1rem;
+	cursor: pointer;
+	user-select: none;
+}
+
+.clearSavedItems:hover, .clearSavedItems:focus{
+	outline: none;
+	background-color: white;
+	color: black;
 }
 
 @media only screen and (max-width: 820px) {
