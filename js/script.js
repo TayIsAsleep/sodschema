@@ -45,7 +45,7 @@ function showSaved(){
 
 	$(".savedList").empty();
 
-	if (savedIDs){
+	if (savedIDs.length > 1){
 
 		for (var i = 0; i < savedIDs.length; i++) {
 			$(".savedList").append("<li class='savedItems' onclick='savedItemClicked($(this))'>" + savedIDs[i] + "</li>");			
