@@ -15,11 +15,11 @@
 	<!-- iOS Safari -->
 	<meta name="apple-mobile-web-app-status-bar-style" content="#335C67">
 
-	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-	<link rel="manifest" href="/site.webmanifest">
-	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#335c67">
+	<link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+	<link rel="manifest" href="./site.webmanifest">
+	<link rel="mask-icon" href="./safari-pinned-tab.svg" color="#335c67">
 	<meta name="msapplication-TileColor" content="#335c67">
 	<meta name="theme-color" content="#ffffff">
 
@@ -39,8 +39,16 @@
 
 				<label onclick="void(0)" class="input-label control" for="input-day" id="input-day-label">Show day</label>
 				<input type="checkbox" name="input-day" id="input-day"/>
+				<p class="control input-label" onClick="showSaved()"><i class="far fa-save"></i></p>
 			</div>
 		</nav>
+
+		<div class="savedIDs">
+			<ul class="savedList">
+				
+			</ul>
+			<input type="text" name="saveItem" id="saveItem" placeholder="New item - Enter to save">
+		</div>
 
 		<img class="timetable" src=""/>
 

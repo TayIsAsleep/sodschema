@@ -37,6 +37,28 @@ Date.prototype.getWeek = function(){
 	        return Math.ceil((((this - onejan) / 86400000) + onejan.getDay() + 1) / 7);
 	    }
 
+// show and update saved id:s
+
+function showSaved(){
+
+	savedIDs = readCookie("savedIDs");
+
+	$(".savedList").empty();
+
+	if (savedIDs){
+
+		$.each(savedIDs, function(key, value){
+
+			$(".savedList").append("<li class='savedItems' onclick='savedItemClicked($(this))'>" + value + "</li>");
+
+		});
+		
+	};
+
+	$(".savedIDs").fadeIn("fast");
+
+};
+
 
 //update timetable image
 
@@ -110,11 +132,17 @@ function newsClose(){
 	createCookie("newsClosed", "closed", 360);
 	$('.news').hide();
 	$( ".input-idnumber" ).focus();	
-}
+};
 
+function savedItemClicked(item){
+	$(".input-idnumber").val(item.text());
+	$(".savedIDs").fadeOut();
+};
 
 $(window).on("load", function(){
 	$(".input-idnumber").val(readCookie("idnumber"));
+
+	$(".savedIDs").fadeOut(0);
 
 	if($( window ).width() <= 820){
 
@@ -176,7 +204,7 @@ $(window).on("load", function(){
 		        $(".fas").removeClass("fa-bars").addClass("fa-times");
 		    }else{
 		        $(".fas").removeClass("fa-times").addClass("fa-bars");
-		    }
+		    };
 
 		});
 	});
@@ -187,9 +215,9 @@ $(window).on("load", function(){
 			if($(window).width() <= 820){
 				if ($(this).is(':visible')){
 					$('.menuButton').trigger("click");
-				} 
-			}
-		}
+				}; 
+			};
+		};
 	});
 
 	$('.input-week').keypress(function(event){
@@ -198,13 +226,35 @@ $(window).on("load", function(){
 			if($(window).width() <= 820){
 				if ($(this).is(':visible')){
 					$('.menuButton').trigger("click");
-				} 
-			}
-		}
+				};
+			};
+		};
 	});
 
-//	$("body").on( "swiperight", function() {
-//	});
+	$('#saveItem').keypress(function(event){
+		var keycode = (event.keyCode ? event.keyCode : event.which);
+		if(keycode == '13'){
+			savedIDs = readCookie("savedIDs");
+
+			console.log(savedIDs);
+
+			if (savedIDs){
+				savedIDs[(savedIDs.length + 1)] = $("#saveItem").val();
+			} else {
+				savedIDs = {
+					1: $("#saveItem").val()
+				};
+			};
+
+			console.log(savedIDs);
+
+			$("#saveItem").val();
+
+			createCookie("savedIDs", savedIDs, 360);
+
+			showSaved();
+		}
+	});
 
 	$(function() {
       //Enable swiping...
