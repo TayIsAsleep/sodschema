@@ -233,7 +233,7 @@ $(window).on("load", function(){
 		if(keycode == '13'){
 			savedIDs = readCookie("savedIDs");
 
-			savedIDs +=	($("#saveItem").val() + ";");
+			savedIDs +=	($("#saveItem").val() + ":");
 
 			alert(savedIDs);
 
