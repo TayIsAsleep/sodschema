@@ -45,10 +45,12 @@ function showSaved(){
 
 	$(".savedList").empty();
 
+	savedIDs = ["hej", "hejsan"];
+
 	if (savedIDs){
 
 		for (var i = 0; i < savedIDs.length; i++) {
-			$(".savedList").append("<li class='savedItems' onclick='savedItemClicked($(this))'>" + savedIDs.length[i] + "</li>");			
+			$(".savedList").append("<li class='savedItems' onclick='savedItemClicked($(this))'>" + savedIDs[i] + "</li>");			
 		};
 		
 	};
