@@ -41,16 +41,22 @@ Date.prototype.getWeek = function(){
 
 function showSaved(){
 
-	savedIDs = readCookie("savedIDs");
+	savedIDs = JSON.parse(readCookie("savedIDs"));
 
 	$(".savedList").empty();
 
 	if (savedIDs.length > 1){
 
+/*
 		for (var i = 0; i < savedIDs.length; i++) {
 			$(".savedList").append("<li class='savedItems' onclick='savedItemClicked($(this))'>" + savedIDs[i] + "</li>");			
 		};
-		
+*/
+
+		savedIDs.forEach(function(item, index, array) {
+			console.log(item, index);
+			$(".savedList").append("<li class='savedItems' onclick='savedItemClicked($(this))'>" + savedIDs[i] + "</li>");		
+		});
 	};
 
 	$(".savedIDs").fadeIn("fast");
@@ -232,7 +238,7 @@ $(window).on("load", function(){
 	$('#saveItem').keypress(function(event){
 		var keycode = (event.keyCode ? event.keyCode : event.which);
 		if(keycode == '13'){
-			savedIDs = readCookie("savedIDs");
+			savedIDs = JSON.parse(readCookie("savedIDs"));
 
 			console.log(savedIDs);
 
@@ -248,7 +254,7 @@ $(window).on("load", function(){
 
 			$("#saveItem").val();
 
-			createCookie("savedIDs", savedIDs, 360);
+			createCookie("savedIDs", JSON.stringify(savedIDs), 360);
 
 			showSaved();
 		}
