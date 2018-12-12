@@ -237,7 +237,7 @@ $(window).on("load", function(){
 			console.log(savedIDs);
 
 			if (savedIDs){
-				savedIDs[(savedIDs.length + 1)] = $("#saveItem").val();
+				savedIDs.push($("#saveItem").val());
 			} else {
 				savedIDs = [
 					$("#saveItem").val()
