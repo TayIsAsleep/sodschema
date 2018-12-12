@@ -45,8 +45,6 @@ function showSaved(){
 
 	$(".savedList").empty();
 
-	savedIDs = ["hej", "hejsan"];
-
 	if (savedIDs){
 
 		for (var i = 0; i < savedIDs.length; i++) {
