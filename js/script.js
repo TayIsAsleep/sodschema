@@ -157,6 +157,8 @@ $(window).on("load", function(){
 
 	updateTimetable();	
 
+	$(".loader-main").slideToggle();
+
 	$( window ).resize(function() {
 		updateTimetable();
 	});
