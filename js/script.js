@@ -259,30 +259,32 @@ $(window).on("load", function(){
 
         	if($(window).width() <= 820){
 
-
+        		//hide timetable
 				$(".timetable").css({"transform": "translateX(-100%) scale(0.8)"});
 
 				setTimeout(hideAndMoveLeft, 100);
 				function hideAndMoveLeft() {
-				$(".timetable").css({"transform": "translateX(100%) scale(0.8)", "opacity": 0});
-				}
 
-        		if ($("#input-day").is(':checked')){
+	        		if ($("#input-day").is(':checked')){
 
-	        		if (dateDay + dateModifier == 0){
-	        			dateModifier = 0;
-	        		} else if (dateDay + dateModifier == 6){
-	        			dateModifier = 0;
+		        		if (dateDay + dateModifier == 0){
+		        			dateModifier = 0;
+		        		} else if (dateDay + dateModifier == 6){
+		        			dateModifier = 0;
+		        		} else {
+		        			dateModifier += 1;
+		        		};
+
 	        		} else {
-	        			dateModifier += 1;
-	        		};
+	        			week = parseInt(week) + parseInt(1);
+	        			$(".input-week").val(week);
+	    			}
 
-        		} else {
-        			week = parseInt(week) + parseInt(1);
-        			$(".input-week").val(week);
-    			}
+		        	updateTimetable();
 
-	        	updateTimetable();
+					// show timetable again	
+					$(".timetable").css({"transform": "translateX(100%) scale(0.8)", "opacity": 0});
+				}
 			}
 
         },
@@ -291,40 +293,53 @@ $(window).on("load", function(){
         	if($(window).width() <= 820){
 
 
-	
+				//hide timetable
 				$(".timetable").css({"transform": "translateX(100%) scale(0.8)"});
 
 				setTimeout(hideAndMoveRight, 100);
 				function hideAndMoveRight() {
-				$(".timetable").css({"transform": "translateX(-100%) scale(0.8)", "opacity": 0});
-				}
 
-        		if ($("#input-day").is(':checked')){
+					if ($("#input-day").is(':checked')){
 
-	        		if (dateDay + dateModifier == 0){
-	        			dateModifier = 0;
-	        		} else if (dateDay + dateModifier == 6){
-	        			dateModifier = 0;
+		        		if (dateDay + dateModifier == 0){
+		        			dateModifier = 0;
+		        		} else if (dateDay + dateModifier == 6){
+		        			dateModifier = 0;
+		        		} else {
+		        			dateModifier -= 1;
+		        		};
+
 	        		} else {
-	        			dateModifier -= 1;
-	        		};
+	        			week -= parseInt(1);
+	        			$(".input-week").val(week);
+	    			}
+	        		updateTimetable();
 
-        		} else {
-        			week -= parseInt(1);
-        			$(".input-week").val(week);
-    			}
+	    			// show timetable again
+					$(".timetable").css({"transform": "translateX(-100%) scale(0.8)", "opacity": 0});
+
+				}
 			}
 	        
-	        updateTimetable();
 
         },
         swipeUp:function(event, direction, distance, duration, fingerCount) {
 
         	if($(window).width() <= 820){
-        		week = (new Date()).getWeek();
-	        	dateModifier = 0;
-				$(".input-week").val((new Date()).getWeek());
-	        	updateTimetable();
+
+        		//hide timetable
+				$(".timetable").css({"transform": "translateY(-100%) scale(0.8)"});
+
+				setTimeout(hideAndMoveUp, 100);
+				function hideAndMoveUp() {
+	        		week = (new Date()).getWeek();
+		        	dateModifier = 0;
+					$(".input-week").val((new Date()).getWeek());
+		        	updateTimetable();
+
+		        	//show timetable again
+					$(".timetable").css({"transform": "translateY(100%) scale(0.8)", "opacity": 0});
+				}
 			}
 
         },
