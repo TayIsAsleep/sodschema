@@ -96,6 +96,11 @@ function updateTimetable(){
 		$(".timetable").attr("src", ("http://www.novasoftware.se/ImgGen/schedulegenerator.aspx?format=png&schoolid=80080/sv-se&id=" + idnumber + "&period=&week=" + week + "&mode=0&day=" + day + "&width=" + width + "&height=" + height ));
 	}
 
+	setTimeout(showTime, 200);
+	function showTime() {
+    	$(".timetable").css({"transform": "none", "opacity": 1});
+	}
+
 };
 
 //accept cookie policy
@@ -254,6 +259,14 @@ $(window).on("load", function(){
 
         	if($(window).width() <= 820){
 
+
+				$(".timetable").css({"transform": "translateX(-100%) scale(0.8)"});
+
+				setTimeout(hideAndMoveLeft, 100);
+				function hideAndMoveLeft() {
+				$(".timetable").css({"transform": "translateX(100%) scale(0.8)", "opacity": 0});
+				}
+
         		if ($("#input-day").is(':checked')){
 
 	        		if (dateDay + dateModifier == 0){
@@ -276,6 +289,15 @@ $(window).on("load", function(){
         swipeRight:function(event, direction, distance, duration, fingerCount) {
 
         	if($(window).width() <= 820){
+
+
+	
+				$(".timetable").css({"transform": "translateX(100%) scale(0.8)"});
+
+				setTimeout(hideAndMoveRight, 100);
+				function hideAndMoveRight() {
+				$(".timetable").css({"transform": "translateX(-100%) scale(0.8)", "opacity": 0});
+				}
 
         		if ($("#input-day").is(':checked')){
 
