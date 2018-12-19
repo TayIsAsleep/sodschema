@@ -164,6 +164,10 @@ body{
 	white-space: nowrap;
 }
 
+.saveButton{
+	margin: 0;
+}
+
 .savedIDs{
 	position: fixed;
 	top: 50%;
@@ -365,12 +369,8 @@ body{
 		top: 50px;
 		left: 0;
 		width: 100vw;
-		flex-direction: column;
+		flex-direction: row-reverse;
 		background: #335C67;
-	}
-
-	.control{
-		margin-top: 1vh;
 	}
 
 	.menuButton{

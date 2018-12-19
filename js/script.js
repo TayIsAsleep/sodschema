@@ -1,4 +1,5 @@
 var dateModifier = 0;
+var week = 0;
 var date = new Date();
 var dateDay = date.getDay();
 
@@ -95,7 +96,6 @@ function updateTimetable(){
 		$(".timetable").attr("src", ("http://www.novasoftware.se/ImgGen/schedulegenerator.aspx?format=png&schoolid=80080/sv-se&id=" + idnumber + "&period=&week=" + week + "&mode=0&day=" + day + "&width=" + width + "&height=" + height ));
 	}
 
-
 };
 
 //accept cookie policy
@@ -152,6 +152,7 @@ $(window).on("load", function(){
 
 
 	$(".input-week").val((new Date()).getWeek());
+	week = (new Date()).getWeek();
 
 	//update triggers
 
@@ -253,13 +254,20 @@ $(window).on("load", function(){
 
         	if($(window).width() <= 820){
 
-        		if (dateDay + dateModifier == 0){
-        			dateModifier = 0;
-        		} else if (dateDay + dateModifier == 7){
-        			dateModifier = 0;
+        		if ($("#input-day").is(':checked')){
+
+	        		if (dateDay + dateModifier == 0){
+	        			dateModifier = 0;
+	        		} else if (dateDay + dateModifier == 6){
+	        			dateModifier = 0;
+	        		} else {
+	        			dateModifier += 1;
+	        		};
+
         		} else {
-        			dateModifier += 1;
-        		};
+        			week = parseInt(week) + parseInt(1);
+        			$(".input-week").val(week);
+    			}
 
 	        	updateTimetable();
 			}
@@ -269,22 +277,31 @@ $(window).on("load", function(){
 
         	if($(window).width() <= 820){
 
-        		if (dateDay + dateModifier == 0){
-        			dateModifier = 0;
-        		} else if (dateDay + dateModifier == 7){
-        			dateModifier = 0;
-        		} else {
-        			dateModifier -= 1;
-        		};
+        		if ($("#input-day").is(':checked')){
 
-	        	updateTimetable();
+	        		if (dateDay + dateModifier == 0){
+	        			dateModifier = 0;
+	        		} else if (dateDay + dateModifier == 6){
+	        			dateModifier = 0;
+	        		} else {
+	        			dateModifier -= 1;
+	        		};
+
+        		} else {
+        			week -= parseInt(1);
+        			$(".input-week").val(week);
+    			}
 			}
+	        
+	        updateTimetable();
 
         },
         swipeUp:function(event, direction, distance, duration, fingerCount) {
 
         	if($(window).width() <= 820){
+        		week = (new Date()).getWeek();
 	        	dateModifier = 0;
+				$(".input-week").val((new Date()).getWeek());
 	        	updateTimetable();
 			}
 
