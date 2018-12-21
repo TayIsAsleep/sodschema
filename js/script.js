@@ -6,9 +6,9 @@ var dateDay = date.getDay();
 //get week number function
 
 Date.prototype.getWeek = function(){
-	        var onejan = new Date(this.getFullYear(), 0, 1);
-	        return Math.ceil((((this - onejan) / 86400000) + onejan.getDay() + 1) / 7);
-	    }
+					        var onejan = new Date(this.getFullYear(), 0, 1);
+					        return Math.ceil((((this - onejan) / 86400000) + onejan.getDay() + 1) / 7);
+					     } 
 
 // show and update saved id:s
 
@@ -96,12 +96,16 @@ function updateTimetable(){
 		$(".timetable").attr("src", ("http://www.novasoftware.se/ImgGen/schedulegenerator.aspx?format=png&schoolid=80080/sv-se&id=" + idnumber + "&period=&week=" + week + "&mode=0&day=" + day + "&width=" + width + "&height=" + height ));
 	}
 
-	setTimeout(showTime, 200);
-	function showTime() {
-    	$(".timetable").css({"transform": "none", "opacity": 1});
-	}
+	$(".timetable").on("load", function(){
+		setTimeout(showTime, 200);
+		function showTime() {
+			$(".timetable").css({"transform": "none", "opacity": 1});
+			
+		}
+	});
 
 };
+
 
 //accept cookie policy
 
@@ -111,16 +115,35 @@ function infoClose(){
 	$( ".input-idnumber" ).focus();
 };
 
+//dismiss changelog
+
 function newsClose(){
 	createCookie("newsClosed", "closed", 360);
 	$('.news').hide();
 	$( ".input-idnumber" ).focus();	
 };
 
+
+//save inputed item in box
+
 function savedItemClicked(item){
 	$(".input-idnumber").val(item.text());
 	$(".savedIDs").fadeOut("fast");
 	updateTimetable();
+};
+
+
+//hide controls menu on mobile
+function hideControls(){
+
+	$('.controls').slideUp('fast', function() {
+	    if ($(this).is(':visible')){
+	        $(this).css('display','flex');
+	        $(".fas").removeClass("fa-bars").addClass("fa-times");
+	    }else{
+	        $(".fas").removeClass("fa-times").addClass("fa-bars");
+	    };
+	});
 };
 
 $(window).on("load", function(){
@@ -170,6 +193,7 @@ $(window).on("load", function(){
 	});
 
 	$('.input-idnumber').on('input', function() {
+		$("#background-roller").fadeIn();
 		updateTimetable();
 	});
 
@@ -192,38 +216,29 @@ $(window).on("load", function(){
 		    }else{
 		        $(".fas").removeClass("fa-times").addClass("fa-bars");
 		    };
-
 		});
+	});
+
+	$('.timetable').on('click', function(){
+		hideControls()
 	});
 
 	$('.input-idnumber').keypress(function(event){
 		var keycode = (event.keyCode ? event.keyCode : event.which);
 		if(keycode == '13'){
-			if($(window).width() <= 820){
-				if ($(this).is(':visible')){
-					$('.menuButton').trigger("click");
-				}; 
-			};
+			hideControls()
 		};
 	});
 
 	$('.input-week').keypress(function(event){
 		var keycode = (event.keyCode ? event.keyCode : event.which);
 		if(keycode == '13'){
-			if($(window).width() <= 820){
-				if ($(this).is(':visible')){
-					$('.menuButton').trigger("click");
-				};
-			};
+			hideControls()
 		};
 	});
 
 	$('.savebutton').on("click", function(){
-		if($(window).width() <= 820){
-			if ($(this).is(':visible')){
-				$('.menuButton').trigger("click");
-			};
-		};
+		hideControls()
 	});
 
 	$('#saveItem').keypress(function(event){
