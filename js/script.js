@@ -136,14 +136,16 @@ function savedItemClicked(item){
 //hide controls menu on mobile
 function hideControls(){
 
-	$('.controls').slideUp('fast', function() {
-	    if ($(this).is(':visible')){
-	        $(this).css('display','flex');
-	        $(".fas").removeClass("fa-bars").addClass("fa-times");
-	    }else{
-	        $(".fas").removeClass("fa-times").addClass("fa-bars");
-	    };
-	});
+	if($( window ).width() <= 820){
+		$('.controls').slideUp('fast', function() {
+		    if ($(this).is(':visible')){
+		        $(this).css('display','flex');
+		        $(".fas").removeClass("fa-bars").addClass("fa-times");
+		    }else{
+		        $(".fas").removeClass("fa-times").addClass("fa-bars");
+		    };
+		});
+	}
 };
 
 $(window).on("load", function(){
