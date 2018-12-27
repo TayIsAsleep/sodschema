@@ -50,6 +50,10 @@ function updateTimetable(){
 
 	dayOnly = $("#input-day").is(':checked');
 
+	if (idnumber.length > 0){
+		$("#background-roller").fadeIn();
+	}
+
 	if(width <= 820){
 		if ($(".controls").is(':visible') != true){		
 			$(".controls").hide();	
@@ -100,6 +104,7 @@ function updateTimetable(){
 		setTimeout(showTime, 200);
 		function showTime() {
 			$(".timetable").css({"transform": "none", "opacity": 1});
+			$("#background-roller").fadeOut();
 			
 		}
 	});
@@ -186,16 +191,16 @@ $(window).on("load", function(){
 
 	//update triggers
 
-	updateTimetable();	
+	updateTimetable();
 
 	$(".loader-main").slideToggle();
+
 
 	$( window ).resize(function() {
 		updateTimetable();
 	});
 
 	$('.input-idnumber').on('input', function() {
-		$("#background-roller").fadeIn();
 		updateTimetable();
 	});
 
