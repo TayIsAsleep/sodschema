@@ -51,7 +51,7 @@ function updateTimetable(){
 	dayOnly = $("#input-day").is(':checked');
 
 	if (idnumber.length > 0){
-		$("#background-roller").fadeIn();
+		$("#background-roller").fadeIn("fast");
 	}
 
 	if(width <= 820){
@@ -104,7 +104,7 @@ function updateTimetable(){
 		setTimeout(showTime, 200);
 		function showTime() {
 			$(".timetable").css({"transform": "none", "opacity": 1});
-			$("#background-roller").fadeOut();
+			$("#background-roller").fadeOut("fast");
 			
 		}
 	});
