@@ -64,7 +64,7 @@ body{
     -webkit-flex-wrap: wrap; /* NEW */
 	justify-content: space-between;
 	align-items: center;
-	z-index: 3000;
+	z-index: 300000000000000000000000000000000000000000000000000;
 	opacity: 1;
 }
 
