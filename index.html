@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-132676118-2"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-132676118-2');
+	</script>
+
 	<title>Schema</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script type="text/javascript" src="./js/jquery.touchSwipe.min.js"></script>
@@ -26,7 +36,7 @@
 
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="./css/style.css">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 </head>
 <body>
 
@@ -35,10 +45,12 @@
 		<div class="lds-roller" id="background-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
 		<nav class="navbar">
 				<input onclick="void(0)" class="input-idnumber control" type="text" name="idnumber" placeholder="PERSONNR/KLASS"/>
-			<h1 onclick="void(0)" class="menuButton"><i class="fas fa-bars"></i></h1>
+			<h1 onclick="void(0)" class="menuButton"><i class="menuIcon fas fa-bars"></i></h1>
 			<div class="controls">
 				<input onclick="void(0)" class="input-week control" type="number" name="week" placeholder="XX" min="1" max="53"/>
-				<p class="control input-label savebutton" onclick="showSaved()"><i class="far fa-save"></i></p>
+				<p class="control input-label savebutton" onclick="showSaved()"><span class="mobileLabels">Saved Schedules&nbsp;</span><i class="far fa-save"></i></p>
+
+				<a href="http://sodmat.ga"><span class="mobileLabels input-label">Sodmat.ga&nbsp;<i class="fas fa-link"></i><span></a>
 
 				<label onclick="void(0)" class="input-label control" for="input-day" id="input-day-label">Show day</label>
 				<input type="checkbox" name="input-day" id="input-day"/>

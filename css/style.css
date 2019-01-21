@@ -59,11 +59,17 @@ body{
 }
 
 .controls{
-	display: flex;
+    display: -webkit-flex; /* NEW */
+    display: flex;
+    -webkit-flex-wrap: wrap; /* NEW */
 	justify-content: space-between;
 	align-items: center;
 	z-index: 3000;
 	opacity: 1;
+}
+
+.mobileLabels{
+	display: none;
 }
 
 .input-idnumber{
@@ -375,8 +381,15 @@ body{
 		top: 50px;
 		left: 0;
 		width: 100vw;
-		flex-direction: row-reverse;
-		background: linear-gradient(rgba(51,92,103,1), rgba(51,92,103,1), rgba(51,92,103,1), rgba(51,92,103,0.75));
+		height: calc(100vh - 50px);
+		flex-direction: column-reverse;
+		align-items: center;
+		justify-content: space-evenly;
+		background: linear-gradient(rgba(51,92,103,1), rgba(51,92,103,0.75), rgba(51,92,103,0.75));
+	}
+
+	.mobileLabels{
+		display: inline-block;
 	}
 
 	.menuButton{

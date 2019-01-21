@@ -159,9 +159,9 @@ function hideControls(){
 		$('.controls').slideUp('fast', function() {
 		    if ($(this).is(':visible')){
 		        $(this).css('display','flex');
-		        $(".fas").removeClass("fa-bars").addClass("fa-times");
+		        $(".menuIcon").removeClass("fa-bars").addClass("fa-times");
 		    }else{
-		        $(".fas").removeClass("fa-times").addClass("fa-bars");
+		        $(".menuIcon").removeClass("fa-times").addClass("fa-bars");
 		    };
 		});
 	}
@@ -178,7 +178,7 @@ $(window).on("load", function(){
 			$(".controls").hide();
 			$('#input-day').prop('checked', true);			
 		}else{
-			$(".fas").removeClass("fa-bars").addClass("fa-times");
+			$(".menuIcon").removeClass("fa-bars").addClass("fa-times");
 			$('#input-day').prop('checked', true);
 			$(".controls").show();		
 		};
@@ -233,9 +233,9 @@ $(window).on("load", function(){
 		$('.controls').slideToggle('fast', function() {
 		    if ($(this).is(':visible')){
 		        $(this).css('display','flex');
-		        $(".fas").removeClass("fa-bars").addClass("fa-times");
+		        $(".menuIcon").removeClass("fa-bars").addClass("fa-times");
 		    }else{
-		        $(".fas").removeClass("fa-times").addClass("fa-bars");
+		        $(".menuIcon").removeClass("fa-times").addClass("fa-bars");
 		    };
 		});
 	});
