@@ -379,6 +379,14 @@ $(window).on("load", function(){
 			}
 
         },
+        swipeDown:function(event, direction, distance, duration, fingerCount) {
+
+        	if($(window).width() <= 820){
+
+        		$(".menuButton").click();
+			}
+
+        },
         threshold:30
       });
     });
