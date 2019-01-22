@@ -66,6 +66,7 @@ body{
 	align-items: center;
 	z-index: 300000000000000000000000000000000000000000000000000;
 	opacity: 1;
+	-webkit-transform: translate3d(0,0,0);
 }
 
 .mobileLabels{

@@ -391,5 +391,16 @@ $(window).on("load", function(){
       });
     });
 
+    $(function() {
+      //Enable swiping...
+      $(".controls").swipe( {
+        //Single swipe handler for left swipes
+        swipeUp:function(event, direction, distance, duration, fingerCount) {
+        	hideControls();
+        },
+        threshold:30
+      });
+    });
+
 });
 
