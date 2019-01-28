@@ -69,6 +69,14 @@ body{
 	-webkit-transform: translate3d(0,0,0);
 }
 
+.toggleBox{
+    display: -webkit-flex; /* NEW */
+    display: flex;
+    -webkit-flex-wrap: wrap; /* NEW */
+	justify-content: space-between;
+	align-items: center;	
+}
+
 .mobileLabels{
 	display: none;
 }
@@ -390,7 +398,11 @@ body{
 	}
 
 	.mobileLabels{
-		display: inline-block;
+		display: flex;
+	}
+
+	.desktopLabels{
+		display: none;
 	}
 
 	.menuButton{

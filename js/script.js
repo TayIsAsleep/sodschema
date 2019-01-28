@@ -46,6 +46,14 @@ function updateTimetable(){
 	idnumber = $(".input-idnumber").val();
 	width = $( window ).width();
 	height = (window.innerHeight - $(".navbar").height());
+
+	if ($("#roundedMode").is(':checked')){
+		height -= 50;
+		createCookie("roundedMode", "rounded", 360);
+	}else{
+		createCookie("roundedMode", "straight", 360);
+	}
+
 	week = $(".input-week").val();
 
 	dayOnly = $("#input-day").is(':checked');
@@ -197,6 +205,12 @@ $(window).on("load", function(){
 		$('.news').show();
 	}
 
+	if(readCookie("roundedMode") == "rounded"){
+		$('#roundedMode').prop('checked', true);
+	}else{
+		$('#roundedMode').prop('checked', false);
+	}
+
 
 	$(".input-week").val((new Date()).getWeek());
 	week = (new Date()).getWeek();
@@ -226,9 +240,12 @@ $(window).on("load", function(){
 
 	$('#input-day').on('click', function() {
 		updateTimetable();
-		if($(window).width() <= 820){
-			$('.menuButton').trigger("click");
-		}
+		hideControls();
+	});
+
+	$('#roundedMode').on('click', function() {
+		updateTimetable();
+		hideControls();
 	});
 
 	$('.menuButton').on('click', function(){
