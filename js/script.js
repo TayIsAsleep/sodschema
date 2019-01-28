@@ -63,15 +63,12 @@ function updateTimetable(){
 	}
 
 	savePosition = $(".savebutton").offset();
-	console.log(savePosition);
 
 	if(width > 820){
-		console.log("desktop mode");
 	$(".savedIDs").css("left", savePosition.left);
 	$(".savedIDs").css("top", (savePosition.top + 43));
 	$(".savedIDs").css("transform", "none");
 	}else{
-		console.log("mobile mode");
 		$(".savedIDs").css("left", "50%");
 		$(".savedIDs").css("top", "50%");
 		$(".savedIDs").css("transform", "translate(-50%,-50%)");
