@@ -219,6 +219,10 @@ $(window).on("load", function(){
 		updateTimetable();
 	});
 
+	$(".input-week").on("click", function(){
+		$(".input-week").focus();
+	});
+
 	$('.input-week').on('input', function() {
 		updateTimetable();
 	});
