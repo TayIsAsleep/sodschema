@@ -383,6 +383,15 @@ body{
 	.navbar{
 		white-space: nowrap;
 		z-index: 2500;
+		justify-content: space-between;
+	}
+
+	.menuButton{
+		padding-right: 20px;
+	}
+
+	.input-idnumber{
+		width: auto;
 	}
 
 	.controls{
@@ -394,7 +403,7 @@ body{
 		height: calc(100vh - 50px);
 		flex-direction: column-reverse;
 		align-items: center;
-		justify-content: space-evenly;
+		justify-content: space-around;
 		background: linear-gradient(rgba(51,92,103,1), rgba(51,92,103,0.75), rgba(51,92,103,0.75));
 	}
 
