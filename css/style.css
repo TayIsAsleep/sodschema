@@ -69,6 +69,10 @@ body{
 	-webkit-transform: translate3d(0,0,0);
 }
 
+.control-divider{
+	opacity: 0.5;
+}
+
 .toggleBox{
     display: -webkit-flex; /* NEW */
     display: flex;
