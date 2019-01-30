@@ -48,7 +48,7 @@ function updateTimetable(){
 	height = (window.innerHeight - $(".navbar").height());
 
 	if ($("#roundedMode").is(':checked')){
-		height -= 50;
+		height -= 25;
 		createCookie("roundedMode", "rounded", 360);
 	}else{
 		createCookie("roundedMode", "straight", 360);
@@ -240,12 +240,10 @@ $(window).on("load", function(){
 
 	$('#input-day').on('click', function() {
 		updateTimetable();
-		hideControls();
 	});
 
 	$('#roundedMode').on('click', function() {
 		updateTimetable();
-		hideControls();
 	});
 
 	$('.menuButton').on('click', function(){
