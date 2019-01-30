@@ -405,6 +405,10 @@ body{
 		display: none;
 	}
 
+	.saveBox{
+		display: flex;
+	}
+
 	.menuButton{
 		display: inline-block;
 	}
