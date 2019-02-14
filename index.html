@@ -13,7 +13,7 @@
 
 	<title>Schema</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script type="text/javascript" src="./js/jquery.touchSwipe.min.js"></script>
+	
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -44,9 +44,11 @@
 
 		<div class="lds-roller" id="background-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
 		<nav class="navbar">
-				<input onclick="void(0)" class="input-idnumber control" type="text" name="idnumber" placeholder="PERSONNR/KLASS"/>
+			<input onclick="void(0)" class="input-idnumber control" type="text" name="idnumber" placeholder="PERSONNR/KLASS"/>
 			<h1 onclick="void(0)" class="menuButton"><i class="menuIcon fas fa-bars"></i></h1>
-			<div class="controls">
+		</nav>
+
+		<div class="controls">
 				
 				<input onclick="void(0)" class="input-week control" type="number" name="week" placeholder="XX" min="1" max="53"/>
 
@@ -84,7 +86,6 @@
 				</div>
 			
 			</div>
-		</nav>
 
 		<div class="savedIDs">
 			<ul class="savedList"></ul>
@@ -175,6 +176,7 @@
 		</div>
 	</div>
 
+	<script type="text/javascript" src="./js/jquery.touchSwipe.min.js"></script>
 	<script type="text/javascript" src="./js/script.js"></script>
 	<script type="text/javascript" src="./js/cookies.js"></script>
 </body>
