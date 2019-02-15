@@ -62,14 +62,6 @@ function updateTimetable(){
 		$("#background-roller").fadeIn("fast");
 	}
 
-	if(width <= 820){
-		if ($(".controls").is(':visible') != true){		
-			$(".controls").hide();	
-		}
-	}else{
-		$(".controls").show();
-	}
-
 	savePosition = $(".savebutton").offset();
 
 	if(width > 820){
@@ -160,37 +152,26 @@ function savedItemClicked(item){
 
 //hide controls menu on mobile
 function hideControls(){
-
-	if($( window ).width() <= 820){
-		$('.controls').slideUp('fast', function() {
-		    if ($(this).is(':visible')){
-		        $(this).css('display','flex');
-		        $(".menuIcon").removeClass("fa-bars").addClass("fa-times");
-		    }else{
-		        $(".menuIcon").removeClass("fa-times").addClass("fa-bars");
-		    };
-		});
-	}
+	$('.controls').slideUp('fast', function() {
+	    if ($(this).is(':visible')){
+	        $(this).css('display','flex');
+	        $(".menuIcon").removeClass("fa-bars").addClass("fa-times");
+	    }else{
+	        $(".menuIcon").removeClass("fa-times").addClass("fa-bars");
+	    };
+	});
 };
 
 $(window).on("load", function(){
+
+	hideControls();
+
 	$(".input-idnumber").val(readCookie("idnumber"));
 
 	$(".savedIDs").fadeOut(0);
 
 	if($( window ).width() <= 820){
-
-		if(readCookie("idnumber") != null){
-			$(".controls").hide();
-			$('#input-day').prop('checked', true);			
-		}else{
-			$(".menuIcon").removeClass("fa-bars").addClass("fa-times");
-			$('#input-day').prop('checked', true);
-			$(".controls").show();		
-		};
-
-	}else{
-		$(".controls").show();
+		$('#input-day').prop('checked', true);	
 	}
 
 	if(readCookie("infoClosed") == "closed"){
@@ -211,7 +192,6 @@ $(window).on("load", function(){
 		$('#roundedMode').prop('checked', false);
 	}
 
-
 	$(".input-week").val((new Date()).getWeek());
 	week = (new Date()).getWeek();
 
@@ -220,7 +200,6 @@ $(window).on("load", function(){
 	updateTimetable();
 
 	$(".loader-main").slideToggle();
-
 
 	$( window ).resize(function() {
 		updateTimetable();

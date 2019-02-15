@@ -23,6 +23,10 @@ body{
     color: white;
 }
 
+a{
+	text-decoration: none;
+}
+
 .wrapper{
 	height: 100%;
 	width: 100%;
@@ -45,7 +49,9 @@ body{
 	top: 0;
 	background: #335C67;
 	display: flex;
-	justify-content: space-around;
+	justify-content: flex-end;
+	box-sizing: border-box;
+	padding: 0 1vw;
 	align-items: center;
 	overflow: hidden;
 	z-index: 2000;
@@ -53,7 +59,6 @@ body{
 
 .menuButton{
 	color: white;
-	display: none;
 	cursor: pointer;
 	user-select: none;
 }
@@ -81,10 +86,6 @@ body{
 	align-items: center;	
 }
 
-.mobileLabels{
-	display: none;
-}
-
 .input-idnumber{
 	font-size: 1.5rem;
 	padding: 0.5rem 1.5rem;
@@ -94,10 +95,15 @@ body{
 	border: 2px solid #335C67;
 	width: 15rem;
 	color: white;
+	margin-right: 1rem;
 }
 
 .input-idnumber:focus{
 	outline: 0;
+}
+
+.mobileOnly{
+	display: none;
 }
 
 .input-idnumber, .input-week{
@@ -146,6 +152,19 @@ body{
 
 #input-day-label{
 	padding: 0.5rem 1.5rem;
+}
+
+.controls{
+	padding: 5vh;
+	position: fixed;
+	top: 50px;
+	right: 0;
+	width: auto;
+	height: calc(100vh - 50px);
+	flex-direction: column-reverse;
+	align-items: center;
+	justify-content: space-around;
+	background: linear-gradient(rgba(51,92,103,1), rgba(51,92,103,0.75), rgba(51,92,103,0.75));
 }
 
 .timetable{
@@ -395,10 +414,11 @@ body{
 	}
 
 	.input-idnumber{
-		width: auto;
+		width: 70vw;
 	}
 
 	.controls{
+		padding: 0;
 		padding-top: 1vh;
 		position: fixed;
 		top: 50px;
@@ -410,15 +430,6 @@ body{
 		justify-content: space-around;
 		background: linear-gradient(rgba(51,92,103,1), rgba(51,92,103,0.75), rgba(51,92,103,0.75));
 	}
-
-	.mobileLabels{
-		display: flex;
-	}
-
-	.desktopLabels{
-		display: none;
-	}
-
 	.saveBox{
 		display: flex;
 	}
