@@ -441,6 +441,10 @@ a{
 	.foodLink{
 		text-decoration: none;
 	}
+
+	.mobileOnly{
+		display: inherit;
+	}
 }
 
 @media only screen and (max-width: 620px) {
