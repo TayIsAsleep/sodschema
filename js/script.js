@@ -44,8 +44,8 @@ function showSaved(){
 function updateTimetable(){
 
 	idnumber = $(".input-idnumber").val();
-	width = $( window ).width();
-	height = (window.innerHeight - $(".navbar").height());
+	width = $( window ).width() + 3;
+	height = (window.innerHeight - $(".navbar").height() + 1);
 
 	if ($("#roundedMode").is(':checked')){
 		height -= 25;
@@ -164,6 +164,7 @@ function hideControls(){
 
 $(window).on("load", function(){
 
+
 	hideControls();
 
 	$(".input-idnumber").val(readCookie("idnumber"));
@@ -238,12 +239,14 @@ $(window).on("load", function(){
 
 	$('.timetable').on('click', function(){
 		hideControls()
+		$(".input-idnumber").blur();
 	});
 
 	$('.input-idnumber').keypress(function(event){
 		var keycode = (event.keyCode ? event.keyCode : event.which);
 		if(keycode == '13'){
 			hideControls()
+			$(".input-idnumber").blur();
 		};
 	});
 

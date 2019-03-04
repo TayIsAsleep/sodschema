@@ -33,9 +33,11 @@
 	<meta name="msapplication-TileColor" content="#335c67">
 	<meta name="theme-color" content="#335c67">
 
-	<link href="https://fonts.googleapis.com/css?family=Roboto+Mono|Roboto:100,300" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<link rel="stylesheet" type="text/css" href="./css/mobile.css">
 	<link rel="stylesheet" type="text/css" href="./css/toggle.css">
+	<link rel="stylesheet" type="text/css" href="./css/roller.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 </head>
 <body>
@@ -45,40 +47,51 @@
 		<div class="lds-roller" id="background-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
 		<nav class="navbar">
 			<input onclick="void(0)" class="input-idnumber control" type="text" name="idnumber" placeholder="PERSONNR/KLASS"/>
-			<h1 onclick="void(0)" class="menuButton"><i class="menuIcon fas fa-bars"></i></h1>
+			<div onclick="void(0)" class="menuIcon menuButton fas fa-bars"></div>
 		</nav>
 
 		<div class="controls">
-				
-				<input onclick="void(0)" class="input-week control" type="number" name="week" placeholder="XX" min="1" max="53"/>
-				
-				<p class="control input-label savebutton saveBox" onclick="showSaved()"><span class="">Saved&nbsp;&nbsp;</span><i class="far fa-save"></i></p>
+			<div class="controls-container">
 
-				<a href="http://sodmat.ga" class="foodLink control"><span class=" input-label">Sodmat.ga&nbsp;&nbsp;<i class="fas fa-link"></i><span></a>
+					<div class="control control-container">
+						<span>Week&nbsp;&nbsp;</span>
+						<input onclick="void(0)" class="input-week label" type="number" name="week" placeholder="XX" min="1" max="53"/>
+					</div>
 
-				<!-- ROUNDED MODE -->
-				<div class="roundedModeBox mobileOnly toggleBox">
-					
-					<label for="roundedMode" class="input-label control">
-						Rounded&nbsp;&nbsp;	
-					</label>
-					<label class="switch ">
-					  <input id="roundedMode" name="roundedMode" type="checkbox">
-					  <span class="slider round control"></span>
-					</label>
+					<div class="control savebutton saveBox control-container" onclick="showSaved()">
+						<span>Saved&nbsp;&nbsp;</span>
+						<i class="far fa-save"></i>
+					</div>
+
+					<a href="http://sodmat.ga" class="foodLink control control-container">
+						<span>Sodmat&nbsp;&nbsp;</span>
+						<i class="fas fa-link"></i>
+					</a>
+
+					<!-- ROUNDED MODE -->
+					<div class="roundedModeBox mobileOnly toggleBox control-container">
+						
+						<label for="roundedMode" class="control">
+							Rounded&nbsp;&nbsp;	
+						</label>
+						<label class="switch ">
+						  <input id="roundedMode" name="roundedMode" type="checkbox">
+						  <span class="slider round control"></span>
+						</label>
+					</div>
+
+					<!-- DAY MODE -->
+					<div class="dayModeBox toggleBox control-container">
+						<label for="input-day" class="control">
+							Day&nbsp;&nbsp;	
+						</label>
+						<label class="switch ">
+						<input type="checkbox" name="input-day" id="input-day"/>
+						  <span class="slider round control"></span>
+						</label>
+					</div>
+
 				</div>
-
-				<!-- DAY MODE -->
-				<div class="dayModeBox toggleBox">
-					<label for="input-day" class="input-label control">
-						Day&nbsp;&nbsp;	
-					</label>
-					<label class="switch ">
-					<input type="checkbox" name="input-day" id="input-day"/>
-					  <span class="slider round control"></span>
-					</label>
-				</div>
-			
 			</div>
 
 		<div class="savedIDs">
@@ -165,7 +178,7 @@
 		<div class="loader-main">
 			
 			<div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-			<h1 class="input-label">SodSchema</h1>
+			<h1 class="label">SodSchema</h1>
 
 		</div>
 	</div>
