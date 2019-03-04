@@ -44,7 +44,7 @@ function showSaved(){
 function updateTimetable(){
 
 	idnumber = $(".input-idnumber").val();
-	width = $( window ).width() + 3;
+	width = $( window ).width() + 6;
 	height = (window.innerHeight - $(".navbar").height() + 1);
 
 	if ($("#roundedMode").is(':checked')){
