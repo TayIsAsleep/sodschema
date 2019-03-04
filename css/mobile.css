@@ -1,6 +1,7 @@
 @media only screen and (max-width: 820px) {
 	body{
 		position: fixed;
+		transition: height .2s ease-in-out;
 	}
 
 	.wrapper{
