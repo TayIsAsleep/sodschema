@@ -210,6 +210,10 @@ $(window).on("load", function(){
 		updateTimetable();
 	});
 
+	$(".input-week-container").on("click", function(){
+		$(".input-week").focus();
+	});
+
 	$(".input-week").on("click", function(){
 		$(".input-week").focus();
 	});

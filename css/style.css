@@ -107,7 +107,7 @@ a{
 	background: #335C67;
 	width: calc(100vw - 5rem);
 	color: white;
-	margin-right: 1rem;
+	margin: 0;
 	box-sizing: border-box;
 	-webkit-transition: all 0.2s ease-in-out;
 	transition: all 0.2s ease-in-out;

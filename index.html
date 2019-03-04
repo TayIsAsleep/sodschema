@@ -53,7 +53,7 @@
 		<div class="controls">
 			<div class="controls-container">
 
-					<div class="control control-container">
+					<div class="control control-container input-week-container">
 						<span>Week&nbsp;&nbsp;</span>
 						<input onclick="void(0)" class="input-week label" type="number" name="week" placeholder="XX" min="1" max="53"/>
 					</div>
@@ -69,27 +69,26 @@
 					</a>
 
 					<!-- ROUNDED MODE -->
-					<div class="roundedModeBox mobileOnly toggleBox control-container">
-						
-						<label for="roundedMode" class="control">
+					<label class="roundedModeBox mobileOnly toggleBox control-container" for="roundedMode">
+						<span>
 							Rounded&nbsp;&nbsp;	
-						</label>
+						</span>
 						<label class="switch ">
 						  <input id="roundedMode" name="roundedMode" type="checkbox">
 						  <span class="slider round control"></span>
 						</label>
-					</div>
+					</label>
 
 					<!-- DAY MODE -->
-					<div class="dayModeBox toggleBox control-container">
-						<label for="input-day" class="control">
+					<label class="dayModeBox toggleBox control-container" for="input-day">
+						<span>
 							Day&nbsp;&nbsp;	
-						</label>
+						</span>
 						<label class="switch ">
 						<input type="checkbox" name="input-day" id="input-day"/>
 						  <span class="slider round control"></span>
 						</label>
-					</div>
+					</label>
 
 				</div>
 			</div>
