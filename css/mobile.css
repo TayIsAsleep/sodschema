@@ -16,6 +16,10 @@
 		border-bottom: 1px solid #335C67;
 	}
 
+	.arrow{
+		display: none !important;
+	}
+
 	.input-idnumber{
 		width: calc(100vw - 5.5rem);
 	}

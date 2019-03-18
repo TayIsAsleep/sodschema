@@ -164,6 +164,10 @@ function hideControls(){
 
 $(window).on("load", function(){
 
+	$(function () {
+	  $('[data-toggle="tooltip"]').tooltip()
+	})
+
 
 	hideControls();
 
@@ -203,6 +207,16 @@ $(window).on("load", function(){
 	$(".loader-main").slideToggle();
 
 	$( window ).resize(function() {
+		updateTimetable();
+	});
+
+	$(".arrow-left").on("click", function(){
+		$(".input-week").val( parseInt($(".input-week").val()) - 1);
+		updateTimetable();
+	});
+
+	$(".arrow-right").on("click", function(){
+		$(".input-week").val( parseInt($(".input-week").val()) + 1);
 		updateTimetable();
 	});
 
