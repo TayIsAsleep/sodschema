@@ -164,11 +164,6 @@ function hideControls(){
 
 $(window).on("load", function(){
 
-	$(function () {
-	  $('[data-toggle="tooltip"]').tooltip()
-	})
-
-
 	hideControls();
 
 	$(".input-idnumber").val(readCookie("idnumber"));
