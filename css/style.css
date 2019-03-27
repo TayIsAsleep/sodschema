@@ -154,7 +154,7 @@ a:hover{
 	outline: 0;
 }
 
-.controls, .savedIDs{
+.controls{
 	position: absolute;
 	top: 50px;
 	right: 0;
@@ -164,13 +164,12 @@ a:hover{
 	padding: 0;
 	background: linear-gradient(rgba(51,92,103,1), rgba(51,92,103,0.75), rgba(51,92,103,0.75));
 	border-radius: 0 0 0 3rem;
-	box-sizing: border-box;
 	overflow: hidden;
 	border: 3px solid rgba(51,92,103,1);
 	border-top: 0;
 }
 
-.controls-container, .savedIDs-child{
+.controls-container{
 	max-height: calc(100vh - 50px);
 	margin: 0;
 	width: 100%;
@@ -195,7 +194,7 @@ a:hover{
 	opacity: 0.5;
 }
 
-.label, .control-container, .clearSavedItems,#saveItem,.savedItems{
+.label, .control-container{
 	color: inherit;
 	font-family: 'Roboto', sans-serif;
 	font-weight: 300;
@@ -204,7 +203,7 @@ a:hover{
 	font-size: 2rem;
 }
 
-.control-container, .clearSavedItems,#saveItem,.savedItems{
+.control-container{
 	background: #fff;
 	color: #335C67;
 	width: 100%;
@@ -221,11 +220,6 @@ a:hover{
 	justify-content: space-between;
 	align-items: center;	
 	margin-bottom: 2rem;
-	border: 0;
-}
-
-.savedList{
-	width: 100%;
 }
 
 .mobileOnly{
@@ -273,22 +267,6 @@ a:hover{
 	transition: transform .1s ease-in-out;
 }
 
-.lineMarker{
-	background: rgba(51,92,103, 0.5);
-	color: white;
-	font-family: 'Roboto';
-	position: absolute;
-	z-index: 1999;
-	box-sizing: border-box;
-	border: 1px solid black;
-	transition: all .2s ease-in-out;
-	text-align: center;
-}
-
-.lineMarker:hover{
-
-}
-
 .info{
 	font-family: 'Roboto', sans-serif;
 	font-weight: 300;
@@ -331,7 +309,7 @@ a:hover{
 	margin: 0;
 }
 
-/*.savedIDs{
+.savedIDs{
 	position: fixed;
 	top: 50%;
 	left: 50%;
@@ -343,7 +321,7 @@ a:hover{
 	color: white;
 	font-family: "Open Sans", sans-serif;
 	z-index: 300;
-}*/
+}
 
 .savedList{
 	list-style: none;
@@ -351,7 +329,7 @@ a:hover{
 	z-index: 301;
 }
 
-/*.savedItems{
+.savedItems{
 	padding: .5rem 1rem;
 	background-color: white;
 	border: 2px solid white;
@@ -406,8 +384,7 @@ a:hover{
 	outline: none;
 	background-color: white;
 	color: #335C67;
-}*/
-
+}
 
 .loader-main{
 	position: fixed;
