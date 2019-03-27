@@ -39,6 +39,63 @@ function showSaved(){
 };
 
 
+//update line marker
+function lineMarker(){
+	marker = $(".lineMarker");
+
+	//getting date and derived variables
+	date = new Date();
+	hours = date.getHours();
+	minutes = date.getMinutes();
+	seconds = date.getSeconds();
+	day = date.getDay();
+
+	//getting inputs
+	dayOnly = $("#input-day").is(':checked');
+
+
+	//calculating width and x-placement
+	windowWidth = $( window ).width();
+	markerWidth = windowWidth/5;
+	if (dayOnly){
+		marker.width(windowWidth);
+		marker.css("left", 0);
+	}else{
+		marker.width(markerWidth-2);
+		marker.css("left", (day-1)*markerWidth);
+	}
+
+
+	// calculating height and y-placement
+
+	latestEndTime = 990;
+	longestDay = latestEndTime - (8 * 60)
+
+	minutesSinceMidnight = minutes + (hours * 60);
+
+	minutesSinceEight = minutesSinceMidnight - (8 * 60);
+
+	height = window.innerHeight;
+
+	topPixels = minutesSinceEight/longestDay*(height-102);
+
+
+
+
+
+	marker.css("top", (topPixels+102));
+
+	//displaying time
+
+	if (hours.toString().length < 2){ hours = "0" + hours};
+	if (minutes.toString().length < 2){ minutes = "0" + minutes};
+	if (seconds.toString().length < 2){ seconds = "0" + seconds};
+
+
+	marker.text("Du är här | " + hours + ":" + minutes + ":" + seconds);
+
+}
+
 //update timetable image
 
 function updateTimetable(){
@@ -62,16 +119,13 @@ function updateTimetable(){
 		$("#background-roller").fadeIn("fast");
 	}
 
-	savePosition = $(".savebutton").offset();
-
 	if(width > 820){
-	$(".savedIDs").css("left", savePosition.left);
-	$(".savedIDs").css("top", (savePosition.top + 43));
+	$(".savedIDs").css("right", 0);
+	$(".savedIDs").css("top", 50);
 	$(".savedIDs").css("transform", "none");
 	}else{
-		$(".savedIDs").css("left", "50%");
-		$(".savedIDs").css("top", "50%");
-		$(".savedIDs").css("transform", "translate(-50%,-50%)");
+		$(".savedIDs").css("left", "0");
+		$(".savedIDs").css("top", 50);
 	}
 
 	currentDay = dateDay + dateModifier;
@@ -113,13 +167,15 @@ function updateTimetable(){
 	}
 
 	$(".timetable").on("load", function(){
+		lineMarker();
+		
 		setTimeout(showTime, 200);
 		function showTime() {
 			$(".timetable").css({"transform": "none", "opacity": 1});
 			$("#background-roller").fadeOut("fast");
-			
 		}
 	});
+
 
 };
 
@@ -238,6 +294,14 @@ $(window).on("load", function(){
 	$('#roundedMode').on('click', function() {
 		updateTimetable();
 	});
+
+	setInterval(function() {
+	    updateTimetable();
+	}, 12* 60 * 60 * 1000);
+
+	setInterval(function() {
+	    lineMarker();
+	}, 1000);
 
 	$('.menuButton').on('click', function(){
 		$('.controls').slideToggle('fast', function() {

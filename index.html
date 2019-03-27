@@ -97,12 +97,15 @@
 			</div>
 
 		<div class="savedIDs">
-			<ul class="savedList"></ul>
-			<input type="text" name="saveItem" id="saveItem" placeholder="New item - Enter to save"><br>
-			<button class="clearSavedItems" onclick="createCookie('savedIDs', '', 360);showSaved();">Clear saved items</button>
+			<div class="savedIDs-child">
+				<ul class="savedList"></ul>
+				<input type="text" name="saveItem" id="saveItem" class="control-container" title="Press enter ↵ to add" placeholder="New item ↵"><br>
+				<button class="clearSavedItems control-container" onclick="createCookie('savedIDs', '', 360);showSaved();">Clear saved</button>
+			</div>
 		</div>
 
 		<img class="timetable" src=""/>
+		<div class="lineMarker">Du är här</div>
 
 		<div class="info">
 			<h1>SodSchema Cookies Policy</h1>

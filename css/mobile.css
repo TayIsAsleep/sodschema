@@ -24,7 +24,7 @@
 		width: calc(100vw - 5.5rem);
 	}
 
-	.controls{
+	.controls, .savedIDs{
 		position: fixed;
 		top: 50px;
 		left: 0;
@@ -33,16 +33,17 @@
 		border: 0;
 	}
 
-	.controls-container{
+	.controls-container, .savedIDs-child{
 		border: 0;
 		padding: 4rem 0 4rem 0;
 		height: calc(100vh - 50px);
 	}
 
-	.control-container{
+	.control-container, .clearSavedItems,#saveItem,.savedItems{
 		width: auto;
-		min-width: 85%;
+		width: 85%;
 		margin: 0;
+		outline: 0;
 	}
 
 	.saveBox{
