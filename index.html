@@ -11,101 +11,141 @@
 	  gtag('config', 'UA-132676118-2');
 	</script>
 
+	<!-- Set title -->
 	<title>Schema</title>
+
+	<!-- Import JQuery JS Library -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	
+	<!-- Basic meta tags -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
+	<!-- Set Style colors -->
 	<!-- Chrome, Firefox OS and Opera -->
-	<meta name="theme-color" content="#335C67">
-	<!-- Windows Phone -->
-	<meta name="msapplication-navbutton-color" content="#335C67">
-	<!-- iOS Safari -->
-	<meta name="apple-mobile-web-app-status-bar-style" content="#335C67">
+	<meta name="theme-color" content="#4343b2">
 
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#4343b2">
+	<meta name="msapplication-TileColor" content="#4343b2">
+
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#4343b2">
+
+	<!-- Import favicons -->
 	<link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
 	<link rel="manifest" href="./site.webmanifest">
-	<link rel="mask-icon" href="./safari-pinned-tab.svg" color="#335c67">
-	<meta name="msapplication-TileColor" content="#335c67">
-	<meta name="theme-color" content="#335c67">
+	<link rel="mask-icon" href="./safari-pinned-tab.svg" color="#4343b2">
 
-	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300" rel="stylesheet">
+	<!-- Import CSS Libraries -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300|Rubik" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+	<!-- Custom stylesheets -->
 	<link rel="stylesheet" type="text/css" href="./css/style.css">
 	<link rel="stylesheet" type="text/css" href="./css/mobile.css">
 	<link rel="stylesheet" type="text/css" href="./css/toggle.css">
 	<link rel="stylesheet" type="text/css" href="./css/roller.css">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
 </head>
 <body>
 
+	<!-- Wrapper div for overflow hiding on mobile devices -->
 	<div class="wrapper">
 
+		<!-- Background loader to show user when timetable is gone -->
 		<div class="lds-roller" id="background-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+
+		<!-- Top navbar -->
 		<nav class="navbar">
+
+			<!-- Main input, personal id, class etc -->
 			<input onclick="void(0)" class="input-idnumber control" type="text" name="idnumber" placeholder="PERSONNR/KLASS"/>
+
+			<!-- Arrows for fast date navigation -->
 			<i class="fas arrow arrow-left fa-angle-left" title="Last week"></i>
+			<i class="fas arrow arrow-center fa-circle" title="Current week"></i>
 			<i class="fas arrow arrow-right fa-angle-right" title="Next week"></i>
+
+			<!-- Menu button -->
 			<div onclick="void(0)" class="menuIcon menuButton fas fa-bars"></div>
 		</nav>
 
+		<!-- Menu dropdown container parent -->
 		<div class="controls">
+
+			<!-- Menu dropdown container child -->
 			<div class="controls-container">
 
-					<div class="control control-container input-week-container">
-						<span>Week&nbsp;&nbsp;</span>
-						<input onclick="void(0)" class="input-week label" type="number" name="week" placeholder="XX" min="1" max="53"/>
-					</div>
-
-					<div class="control savebutton saveBox control-container" onclick="showSaved()">
-						<span>Saved&nbsp;&nbsp;</span>
-						<i class="far fa-save"></i>
-					</div>
-
-					<a href="http://sodmat.ga" class="foodLink control control-container">
-						<span>Sodmat&nbsp;&nbsp;</span>
-						<i class="fas fa-link"></i>
-					</a>
-
-					<!-- ROUNDED MODE -->
-					<label class="roundedModeBox mobileOnly toggleBox control-container" for="roundedMode">
-						<span>
-							Rounded&nbsp;&nbsp;	
-						</span>
-						<label class="switch ">
-						  <input id="roundedMode" name="roundedMode" type="checkbox">
-						  <span class="slider round control"></span>
-						</label>
-					</label>
-
-					<!-- DAY MODE -->
-					<label class="dayModeBox toggleBox control-container" for="input-day">
-						<span>
-							Day&nbsp;&nbsp;	
-						</span>
-						<label class="switch ">
-						<input type="checkbox" name="input-day" id="input-day"/>
-						  <span class="slider round control"></span>
-						</label>
-					</label>
-
+				<!-- Week input -->
+				<div class="control control-container input-week-container">
+					<span>Week&nbsp;&nbsp;</span>
+					<input onclick="void(0)" class="input-week label" type="number" name="week" placeholder="XX" min="1" max="53"/>
 				</div>
-			</div>
 
-		<div class="savedIDs">
-			<ul class="savedList"></ul>
-			<input type="text" name="saveItem" id="saveItem" placeholder="New item - Enter to save"><br>
-			<button class="clearSavedItems" onclick="createCookie('savedIDs', '', 360);showSaved();">Clear saved items</button>
+				<!-- Show saved timetables button -->
+				<div class="control savebutton saveBox control-container" onclick="showSaved()">
+					<span>Saved&nbsp;&nbsp;</span>
+					<i class="far fa-save control-right"></i>
+				</div>
+
+				<!-- Redirect to school lunch link -->
+				<a href="http://sodmat.ga" class="foodLink control control-container">
+					<span>Sodmat&nbsp;&nbsp;</span>
+					<i class="fas fa-link control-right"></i>
+				</a>
+
+				<!-- Rounded mode toggle switch -->
+				<label class="roundedModeBox mobileOnly toggleBox control-container" for="roundedMode">
+					<span>
+						Rounded&nbsp;&nbsp;	
+					</span>
+					<label class="switch ">
+					  <input id="roundedMode" name="roundedMode" type="checkbox">
+					  <span class="slider round control control-right"></span>
+					</label>
+				</label>
+
+				<!-- Day only mode toggle switch -->
+				<label class="dayModeBox toggleBox control-container" for="input-day">
+					<span>
+						Day&nbsp;&nbsp;	
+					</span>
+					<label class="switch ">
+					<input type="checkbox" name="input-day" id="input-day"/>
+					  <span class="slider round control control-right"></span>
+					</label>
+				</label>
+
+			</div>
 		</div>
 
+		<!-- Saved timetables dropdown container parent-->
+		<div class="savedIDs">
+
+			<!-- Saved timetables dropdown container -->
+			<div class="saved-container">
+
+				<!-- Saved timetables list -->
+				<ul class="savedList"></ul>
+
+				<!-- Create new save entry -->
+				<input type="text" class="mobileSaved control-container" name="saveItem" id="saveItem" title="Press enter ⏎ to save" placeholder="New timetable | ⏎">
+
+				<!-- Remove saved entries -->
+				<button class="clearSavedItems mobileSaved control-container" onclick="createCookie('savedIDs', '', 360);showSaved();">Clear saved</button>
+			</div>
+		</div>
+
+		<!-- Main timetable object -->
 		<img class="timetable" src=""/>
 
+		<!-- GDPR and cookies info div -->
 		<div class="info">
 			<h1>SodSchema Cookies Policy</h1>
+			<h2>TLDR;<br>If you use SodSchema, we store cookies on your device for you to be able to save timetables.</h2>
 
 			<p>Last updated: November 14, 2018</p>
 
@@ -172,21 +212,26 @@
 			</li>
 			</ul>
 
-			<h1 onclick="infoClose()" class="infoClose">Close and accept</h1>
+			<!-- Accept policy button -->
+			<span onclick="infoClose()" class="infoClose">Close and accept</span>
 			<br>
 
 		</div>
 
+		<!-- Full CSS Loader page, slides up as page is loaded. "hides the ugly" -->
 		<div class="loader-main">
-			
 			<div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
 			<h1 class="label">SodSchema</h1>
-
 		</div>
 	</div>
 
+	<!-- JS Libraries -->
 	<script type="text/javascript" src="./js/jquery.touchSwipe.min.js"></script>
-	<script type="text/javascript" src="./js/script.js"></script>
 	<script type="text/javascript" src="./js/cookies.js"></script>
+
+	<!-- JS Main -->
+	<script type="text/javascript" src="./js/script.js"></script>
+	<script type="text/javascript" src="./js/touchEvents.js"></script>
+	<script type="text/javascript" src="./js/updateTimetable.js"></script>
 </body>
 </html>

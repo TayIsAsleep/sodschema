@@ -4,14 +4,12 @@ var date = new Date();
 var dateDay = date.getDay();
 
 //get week number function
-
 Date.prototype.getWeek = function(){
 					        var onejan = new Date(this.getFullYear(), 0, 1);
 					        return Math.ceil((((this - onejan) / 86400000) + onejan.getDay() + 1) / 7);
 					     } 
 
 // show and update saved id:s
-
 function showSaved(){
 
 	savedIDs = readCookie("savedIDs");
@@ -38,102 +36,15 @@ function showSaved(){
 
 };
 
-
-//update timetable image
-
-function updateTimetable(){
-
-	idnumber = $(".input-idnumber").val();
-	width = $( window ).width() + 6;
-	height = (window.innerHeight - $(".navbar").height() + 1);
-
-	if ($("#roundedMode").is(':checked')){
-		height -= 25;
-		createCookie("roundedMode", "rounded", 360);
-	}else{
-		createCookie("roundedMode", "straight", 360);
-	}
-
-	week = $(".input-week").val();
-
-	dayOnly = $("#input-day").is(':checked');
-
-	if (idnumber.length > 0){
-		$("#background-roller").fadeIn("fast");
-	}
-
-	savePosition = $(".savebutton").offset();
-
-	if(width > 820){
-	$(".savedIDs").css("left", savePosition.left);
-	$(".savedIDs").css("top", (savePosition.top + 43));
-	$(".savedIDs").css("transform", "none");
-	}else{
-		$(".savedIDs").css("left", "50%");
-		$(".savedIDs").css("top", "50%");
-		$(".savedIDs").css("transform", "translate(-50%,-50%)");
-	}
-
-	currentDay = dateDay + dateModifier;
-
-    if(dayOnly) {
-
-    	$("#input-day-label").text("Show week");
-
-	    switch(currentDay){
-	    	case 1:
-	    		day = 1;
-	    		break;
-	    	case 2:
-	    		day = 2;
-	    		break;
-	    	case 3:
-	    		day = 4;
-	    		break;
-	    	case 4:
-	    		day = 8;
-	    		break;
-	    	case 5:
-	    		day = 16;
-	    		break;
-	    	default:
-	    		day = 0;
-    	}
-
-	} else {
-
-    	$("#input-day-label").text("Show day");
-	    day = 0;
-	}
-
-	createCookie("idnumber", idnumber, 360);
-
-	if (idnumber.length > 0){
-		$(".timetable").attr("src", ("http://www.novasoftware.se/ImgGen/schedulegenerator.aspx?format=png&schoolid=80080/sv-se&id=" + idnumber + "&period=&week=" + week + "&mode=0&day=" + day + "&width=" + width + "&height=" + height ));
-	}
-
-	$(".timetable").on("load", function(){
-		setTimeout(showTime, 200);
-		function showTime() {
-			$(".timetable").css({"transform": "none", "opacity": 1});
-			$("#background-roller").fadeOut("fast");
-			
-		}
-	});
-
-};
-
-
 //accept cookie policy
-
 function infoClose(){
 	createCookie("infoClosed", "closed", 360);
-	$('.info').hide();
+	$('.navbar').removeClass("infoBgBlur");
+	$('.info').fadeOut("fast");
 	$( ".input-idnumber" ).focus();
 };
 
 //dismiss changelog
-
 function newsClose(){
 	createCookie("newsClosed", "closed", 360);
 	$('.news').hide();
@@ -142,7 +53,6 @@ function newsClose(){
 
 
 //save inputed item in box
-
 function savedItemClicked(item){
 	$(".input-idnumber").val(item.text());
 	$(".savedIDs").fadeOut("fast");
@@ -155,124 +65,184 @@ function hideControls(){
 	$('.controls').slideUp('fast', function() {
 	    if ($(this).is(':visible')){
 	        $(this).css('display','flex');
+			$('.timetable').addClass("menuBgBlur");
 	        $(".menuIcon").removeClass("fa-bars").addClass("fa-times");
 	    }else{
+			$('.timetable').removeClass("menuBgBlur");
 	        $(".menuIcon").removeClass("fa-times").addClass("fa-bars");
 	    };
 	});
 };
 
+
+//events on load & event triggers.
 $(window).on("load", function(){
 
+	// ON LOAD EVENTS
+
+	//hide controls div before load
 	hideControls();
 
+	//get idnumber cookie and input data
 	$(".input-idnumber").val(readCookie("idnumber"));
 
+	//hide saved ids div before load
 	$(".savedIDs").fadeOut(0);
 
+	//automatically enable day mode for mobile devices
 	if($( window ).width() <= 820){
 		$('#input-day').prop('checked', true);	
 	}
 
+	//get info closed cookie and hide or show info accordingly
 	if(readCookie("infoClosed") == "closed"){
 		$('.info').hide();
+		$('.navbar').removeClass("infoBgBlur");
 	}else{
-		$('.info').show();
+		$('.info').fadeIn();
+		$('.navbar').addClass("infoBgBlur");
 	}
 
+	//get news closed info (deprecated, to be updated and readded.)
 	if(readCookie("newsClosed") == "closed"){
 		$('.news').hide();
 	}else{
 		$('.news').show();
 	}
 
+	//get rounded mode cookie for rounded screen devices
 	if(readCookie("roundedMode") == "rounded"){
 		$('#roundedMode').prop('checked', true);
 	}else{
 		$('#roundedMode').prop('checked', false);
 	}
 
+	//get and set current week
 	$(".input-week").val((new Date()).getWeek());
 	week = (new Date()).getWeek();
 
-	//update triggers
-
+	//load timetable after cookie info get
 	updateTimetable();
 
+	// Page finished loading, slide up loader screen
 	$(".loader-main").slideToggle();
 
+
+
+
+	// TRIGGERS
+
+	// update timetable to fit new window size
 	$( window ).resize(function() {
 		updateTimetable();
 	});
 
+	//blink arrow and go move week on timetable
 	$(".arrow-left").on("click", function(){
-		$(".input-week").val( parseInt($(".input-week").val()) - 1);
-		updateTimetable();
+		$('.arrow-left').addClass('arrow-loading');
+		$(".timetable").fadeOut(500, function(){
+			$(".input-week").val( parseInt($(".input-week").val()) - 1);
+			updateTimetable();
+		});
 	});
 
+	//blink arrow and go move week on timetable
+	$(".arrow-center").on("click", function(){
+		$('.arrow-center').addClass('arrow-loading');
+		$(".timetable").fadeOut(500, function(){
+			$(".input-week").val( new Date().getWeek());
+			updateTimetable();
+		});
+	});
+
+	//blink arrow and go move week on timetable
 	$(".arrow-right").on("click", function(){
-		$(".input-week").val( parseInt($(".input-week").val()) + 1);
-		updateTimetable();
+		$('.arrow-right').addClass('arrow-loading');
+		$(".timetable").fadeOut(500, function(){
+			$(".input-week").val( parseInt($(".input-week").val()) + 1);
+			updateTimetable();			
+		});
 	});
 
+	//update timetable on related input
 	$('.input-idnumber').on('input', function() {
 		updateTimetable();
 	});
 
+	//unreliable fix, need more investigation on why input week arrows dont work.
 	$(".input-week-container").on("click", function(){
 		$(".input-week").focus();
 	});
 
+	//unreliable fix, need more investigation on why input week arrows dont work.
 	$(".input-week").on("click", function(){
 		$(".input-week").focus();
 	});
 
+	//update timetable on related input
 	$('.input-week').on('input', function() {
 		updateTimetable();
 	});
 
+	//update timetable on related button click
 	$('#input-day').on('click', function() {
 		updateTimetable();
 	});
 
+	//update timetable on related button click
 	$('#roundedMode').on('click', function() {
 		updateTimetable();
 	});
 
+	//handles menu button clicking
 	$('.menuButton').on('click', function(){
 		$('.controls').slideToggle('fast', function() {
 		    if ($(this).is(':visible')){
 		        $(this).css('display','flex');
+				$('.timetable').addClass("menuBgBlur");
 		        $(".menuIcon").removeClass("fa-bars").addClass("fa-times");
 		    }else{
+				$('.timetable').removeClass("menuBgBlur");
 		        $(".menuIcon").removeClass("fa-times").addClass("fa-bars");
 		    };
 		});
 	});
 
+	// hide divs and remove focus from inputs when timetable is clicked
 	$('.timetable').on('click', function(){
-		hideControls()
+		hideControls();
 		$(".input-idnumber").blur();
+		$(".savedIDs").fadeOut("fast");
 	});
 
+	// remove focus from input when enter is clicked for cleaner ux
 	$('.input-idnumber').keypress(function(event){
 		var keycode = (event.keyCode ? event.keyCode : event.which);
 		if(keycode == '13'){
-			hideControls()
+			hideControls();
 			$(".input-idnumber").blur();
 		};
 	});
 
+	//hide controls if enter is clicked in week input
 	$('.input-week').keypress(function(event){
 		var keycode = (event.keyCode ? event.keyCode : event.which);
 		if(keycode == '13'){
-			hideControls()
+			hideControls();
 		};
 	});
 
+
+	// hide controls when save button is clicked
 	$('.savebutton').on("click", function(){
-		hideControls()
+		hideControls();
 	});
+
+	//create new save item when enter is clicked in input box. 
+
+	//FIX NEEDED: solutions coming soon
+	//-create button (preferred)
+	//-show label
 
 	$('#saveItem').keypress(function(event){
 		var keycode = (event.keyCode ? event.keyCode : event.which);
@@ -289,6 +259,7 @@ $(window).on("load", function(){
 		};
 	});
 
+	// close saveIDs if clicked outside of div
 	$(document).mouseup(function(e){
 	var container = $(".savedIDs");
 
@@ -298,121 +269,5 @@ $(window).on("load", function(){
 		    container.fadeOut("fast");
 		}
 	});
-
-	$(function() {
-      //Enable swiping...
-      $(".timetable").swipe( {
-        //Single swipe handler for left swipes
-        swipeLeft:function(event, direction, distance, duration, fingerCount) {
-
-        	if($(window).width() <= 820){
-
-        		//hide timetable
-				$(".timetable").css({"transform": "translateX(-100%) scale(0.8)"});
-
-				setTimeout(hideAndMoveLeft, 100);
-				function hideAndMoveLeft() {
-
-	        		if ($("#input-day").is(':checked')){
-
-		        		if (dateDay + dateModifier == 0){
-		        			dateModifier = 0;
-		        		} else if (dateDay + dateModifier == 6){
-		        			dateModifier = 0;
-		        		} else {
-		        			dateModifier += 1;
-		        		};
-
-	        		} else {
-	        			week = parseInt(week) + parseInt(1);
-	        			$(".input-week").val(week);
-	    			}
-
-		        	updateTimetable();
-
-					// show timetable again	
-					$(".timetable").css({"transform": "translateX(100%) scale(0.8)", "opacity": 0});
-				}
-			}
-
-        },
-        swipeRight:function(event, direction, distance, duration, fingerCount) {
-
-        	if($(window).width() <= 820){
-
-
-				//hide timetable
-				$(".timetable").css({"transform": "translateX(100%) scale(0.8)"});
-
-				setTimeout(hideAndMoveRight, 100);
-				function hideAndMoveRight() {
-
-					if ($("#input-day").is(':checked')){
-
-		        		if (dateDay + dateModifier == 0){
-		        			dateModifier = 0;
-		        		} else if (dateDay + dateModifier == 6){
-		        			dateModifier = 0;
-		        		} else {
-		        			dateModifier -= 1;
-		        		};
-
-	        		} else {
-	        			week -= parseInt(1);
-	        			$(".input-week").val(week);
-	    			}
-	        		updateTimetable();
-
-	    			// show timetable again
-					$(".timetable").css({"transform": "translateX(-100%) scale(0.8)", "opacity": 0});
-
-				}
-			}
-	        
-
-        },
-        swipeUp:function(event, direction, distance, duration, fingerCount) {
-
-        	if($(window).width() <= 820){
-
-        		//hide timetable
-				$(".timetable").css({"transform": "translateY(-100%) scale(0.8)"});
-
-				setTimeout(hideAndMoveUp, 100);
-				function hideAndMoveUp() {
-	        		week = (new Date()).getWeek();
-		        	dateModifier = 0;
-					$(".input-week").val((new Date()).getWeek());
-		        	updateTimetable();
-
-		        	//show timetable again
-					$(".timetable").css({"transform": "translateY(100%) scale(0.8)", "opacity": 0});
-				}
-			}
-
-        },
-        swipeDown:function(event, direction, distance, duration, fingerCount) {
-
-        	if($(window).width() <= 820){
-
-        		$(".menuButton").click();
-			}
-
-        },
-        threshold:30
-      });
-    });
-
-    $(function() {
-      //Enable swiping...
-      $(".controls").swipe( {
-        //Single swipe handler for left swipes
-        swipeUp:function(event, direction, distance, duration, fingerCount) {
-        	hideControls();
-        },
-        threshold:30
-      });
-    });
-
 });
 
