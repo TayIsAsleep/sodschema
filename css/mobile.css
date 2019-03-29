@@ -54,6 +54,7 @@
 	}
 
 	.menuBgBlur{
+		filter: none;
 		top: 100vh !important;
 	}
 
