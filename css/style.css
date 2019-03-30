@@ -285,7 +285,7 @@ a:hover{
 	top: 50px;
 	left: -1px;
 	z-index: 1;
-	transition: transform .1s ease-in-out,filter .2s ease-in-out, top .2s ease-in-out;
+	transition: transform .1s ease-in-out, filter .2s ease-in-out, top .15s ease-in-out;
 	overflow: hidden;
 }
 
