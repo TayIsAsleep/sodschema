@@ -15,5 +15,6 @@
     ],
     "theme_color": "#4343b2",
     "background_color": "#4343b2",
+    "start_url": "https://sodschema.ga",
     "display": "standalone"
 }
