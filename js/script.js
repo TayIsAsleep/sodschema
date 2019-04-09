@@ -121,6 +121,7 @@ $(window).on("load", function(){
 	$(".input-week").val((new Date()).getWeek());
 	week = (new Date()).getWeek();
 	$(".arrow-center-text").text(week);
+	$(".arrow-center").attr("title", ("Current week (" + week + ")"));
 
 	//load timetable after cookie info get
 	updateTimetable();
