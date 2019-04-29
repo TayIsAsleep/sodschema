@@ -79,6 +79,7 @@ function updateTimetable(){
 			$('.timetable').fadeIn(500);
 			$(".timetable").css({"transform": "none", "opacity": 1});
 			$("#background-roller").fadeOut("fast");
+			$(".arrow-center-text").text(week);
 			
 		}
 	});
