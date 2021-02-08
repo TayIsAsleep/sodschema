@@ -20,16 +20,16 @@
 	</script>
 
 	<!-- Set title -->
-	<title>Sodschema</title>
+	<title>Sodschema - 2020</title>
 
 	<!-- Import JQuery JS Library -->
 	<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
-	<script type="text/javascript" src="./js/jquery-3.4.0.min.js"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.4.0.min.js') }}"></script>
 	
 	<!-- Basic meta tags -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
-	<META NAME="Title" CONTENT="Sodschema">
+	<META NAME="Title" CONTENT="Sodschema - 2020">
 	<META NAME="Keywords" CONTENT="Sodschema, Södertörn, NTI, NTI-Gymnasiet, NTI-Gymnasiet Södertörn">
 	<META NAME="Description" CONTENT="Schemaläsare för elever och personal på NTI-Gymnasiet Södertörn">
 	<META NAME="Subject" CONTENT="NTI Södertörn Schema">
@@ -47,21 +47,21 @@
 	<meta name="apple-mobile-web-app-status-bar-style" content="#4343b2">
 
 	<!-- Import favicons -->
-	<link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
-	<link rel="manifest" href="./site.webmanifest">
-	<link rel="mask-icon" href="./safari-pinned-tab.svg" color="#4343b2">
+	<link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='img/apple-touch-icon.png') }}">
+	<link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='img/favicon-32x32.png') }}">
+	<link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='img/favicon-16x16.png') }}">
+	<link rel="manifest" href="{{ url_for('static', filename='site.webmanifest') }}">
+	<link rel="mask-icon" href="{{ url_for('static', filename='safari-pinned-tab.svg') }}" color="#4343b2">
 
 	<!-- Import CSS Libraries -->
 	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300|Rubik" rel="stylesheet">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
 	<!-- Custom stylesheets -->
-	<link rel="stylesheet" type="text/css" href="./css/style.css">
-	<link rel="stylesheet" type="text/css" href="./css/mobile.css">
-	<link rel="stylesheet" type="text/css" href="./css/toggle.css">
-	<link rel="stylesheet" type="text/css" href="./css/roller.css">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/mobile.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/toggle.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/roller.css') }}">
 
 </head>
 <body>
@@ -107,8 +107,8 @@
 				</div>
 
 				<!-- Redirect to school lunch link -->
-				<a href="http://mat.sodapps.io" class="foodLink control control-container">
-					<span>Sodmat&nbsp;&nbsp;</span>
+				<a href="https://www.gettime.ga/mat" class="foodLink control control-container">
+					<span>GetFood&nbsp;&nbsp;</span>
 					<i class="fas fa-link control-right"></i>
 				</a>
 
@@ -241,13 +241,13 @@
 	</div>
 
 	<!-- JS Libraries -->
-	<script type="text/javascript" src="./js/jquery.touchSwipe.min.js"></script>
-	<script type="text/javascript" src="./js/cookies.js"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='js/jquery.touchSwipe.min.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='js/cookies.js') }}"></script>
 
 	<!-- JS Main -->
-	<script type="text/javascript" src="./js/script.js"></script>
-	<script type="text/javascript" src="./js/touchEvents.js"></script>
-	<script type="text/javascript" src="./js/updateTimetable.js"></script>
-	<script type="text/javascript" src="./service-worker.js"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='js/script.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='js/touchEvents.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='js/updateTimetable.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='service-worker.js') }}"></script>
 </body>
 </html>
